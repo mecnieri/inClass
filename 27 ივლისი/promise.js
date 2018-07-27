@@ -27,7 +27,7 @@ doAsync().then(function () {
     return ["Aaa"];
 })
 .then((msg) => {
-    console.log(msg);
+    console.log(msg + "dasd");
 })
 
 .catch(function (error) {
