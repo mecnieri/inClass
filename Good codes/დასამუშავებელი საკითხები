@@ -1,0 +1,31 @@
+var let const
+// for in 
+// for of 
+parseInt
+// debugger;
+"use strict";
+ 
+callback functions
+
+ invokes 
+ 
+// ASI
+
+call 
+apply
+
+// writeble
+// enumerable
+// cofigurable
+
+high order functions 
+// closure 
+// prototype
+
+// window.onload
+// DOMContentLoaded
+
+    // IIFE
+
+hoisted
+document.addEventListener('DOMContentLoaded', init);

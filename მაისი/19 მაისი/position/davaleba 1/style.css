@@ -1,0 +1,61 @@
+/* left, right, top, bottom */
+
+
+div.static{
+    position: static;
+    border:3px solid blue;
+}
+
+div.relative{
+    position: relative;
+    border:3px solid black;
+    left: 50px;
+    top: 0;
+
+}
+
+div.absolute{
+    position: absolute;
+    border:3px solid brown;
+    left: 0;
+    top: 0;
+}
+
+div.relative2{
+    position: relative;
+    border:3px solid black;
+    width: 500px;
+    height: 300px;
+}
+div.absolute{
+    position: absolute;
+    border:3px solid brown;
+    width: 300px;
+    height: 100px;
+    left: 0;
+    top: 0;
+    display: none;
+    text-align: center;
+    line-height: 100px;
+}
+
+div.relative2:hover > div.absolute{
+display: block;
+}
+
+div.fixed{
+    position: fixed;
+    border:3px solid brown;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 200px;
+}
+
+img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1000px;
+    z-index: -1;
+}

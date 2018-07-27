@@ -1,0 +1,30 @@
+body > div:first-child{
+    width: 250px;
+    height: 100px;
+    background-color: aqua;
+    overflow: visible;
+    overflow: scroll;
+}
+
+.outer{
+    border: 5px dotted rgba(61, 214, 0, 0.904);
+    border-radius: 5px;
+    width: 450px;
+    padding: 10px;
+    margin-bottom: 40px;
+
+}
+
+.float{
+    padding: 10px;
+    border: 5px solid red;
+    background-color: purple;
+    border-radius: 5px;
+    float: left;
+    width: 200px;
+    margin: 0 20px 0 0;
+}
+
+.overflow{
+    overflow: auto;
+}

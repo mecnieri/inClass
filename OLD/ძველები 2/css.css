@@ -1,0 +1,51 @@
+*{
+    color:red
+}
+h2{color: blue}
+li h2 {color: green}
+
+#MyItem{color: purple}
+.MyItem{color: rgb(105, 33, 7)}
+/*li.MyItem{color: darkblue}
+[data-modal= "open"]{color: darkgreen;
+background-color: chocolate;
+padding: 24px}
+ul.menu >li  {display: inline-block;
+    padding: 23px
+} */
+ul.menu >li:first-child  { font-size: 20px; 
+    padding: 23px; color:blue
+}
+ul.menu >li:last-child  { font-size: 25px; 
+    padding: 23px; font-weight: 700
+}
+ul.menu >li:nth-child(3) {display: 
+    padding: 23px; color:purple; font-size: 35px
+}
+ul.menu >li:nth-child(3n+1)  {display: inline-block;
+    padding: 23px; color:brown
+}
+
+/* :empty */
+
+p ~ p {
+    cursor: pointer;
+    font-size:18px;
+    color:green;
+}
+
+
+#par1 ~ p {
+    color :blueviolet;
+}
+
+#par1 ~ p:hover {
+    background-color: rgba(0, 0, 255, 0.61);
+}
+
+#par1 ~ p:active{
+
+    background-color: rgba(255, 0, 0, 0.5);
+
+}
+

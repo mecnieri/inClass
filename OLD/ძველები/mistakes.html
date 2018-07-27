@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mistakes</title>
+</head>
+<body>
+    <!--bad option-->
+    <section id = "wrapper"></section>
+    <section id = "header"></section>
+    <section id = "main"></section>
+    <section id = "secondary"></section>
+    <section id = "footer"></section>
+    <!--bad  option ends-->
+    <!--better option-->
+    <header tabindex="-1"> 
+        <h1>My website</h1>
+    </header>
+    <div role = "main"></div>
+    <aside role = "complementary"></aside>
+    <footer></footer><!--end-->
+    <!--new-->
+    <!--sort of right-->
+    <article>
+        <header>
+            <h1>My blog</h1>
+        </header>
+    </article>
+    <!--more right-->
+    <article>
+        <h1>My blog2</h1>
+    </article>
+<!--bad-->
+    <header>
+        <hgroup>
+            <h1>My blog</h1>
+        </hgroup>
+        <p>name of the blog</p>
+
+    </header>
+    <!--good-->
+    <header>
+        <h1>My blog</h1>
+        <p>name of the blog</p>
+    </header>
+    <!--bad-->
+    <header>
+        <hgroup>
+            <h1>My blog</h1>
+            <h2>My blog description</h2>
+        </hgroup>
+    </header>
+    <!--norm-->
+    <hgroup>
+        <h1>my blog</h1>
+        <h2>blog description</h2>
+    </hgroup>
+    <!--bad-->
+    <header>
+        <h1><!-- without h1= still wrong-->
+            <figure>
+                <img src = "download" alt = "logo"> Logo
+            </figure>
+        </h1>
+    </header>
+
+    <script type = "text/javascript"></script> <!--wrong-->
+
+
+
+
+</body>
+</html>
