@@ -90,17 +90,25 @@ function calen(year, month) {
 
     y.innerText = year;
     m.innerText = months[month]
-    
+
     for (let i = 0; i < t.length; i++) {
         let d = t[i].children;
         for (let j = 0; j < d.length; j++) {
             arr.push(d[j]);
         }
     }
+    // ესეც მუშაობს 
+    // for (let x = day, y = 1; x < arr.length, y <= count; x++ , y++) {
+    //     arr[x].innerText = y;
+    // }
 
-    for (let x = day, y = 1; x < arr.length, y <= count; x++ , y++) {
-        arr[x].innerText = y;
-    }
+    // ეს სჯობს 
+    arr.forEach(function (item, index) {
+        if (index < count) {
+            item = index + 1;
+            arr[index + day].innerText = item;
+        }
+    })
 }
 
 calen(weli, Number(tve) - 1)
