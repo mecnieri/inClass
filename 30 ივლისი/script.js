@@ -54,10 +54,64 @@ const pElement = document.querySelector('p');
 // myEvent.initCustomEvent('myCustomEvent', true, false, info)
 // pElement.dispatchEvent(myEvent)
 
-const table = document.querySelector('table')
+// Event delegation Example
+// const table = document.querySelector('table')
 
-table.addEventListener('click', ({ target }) => {
-    if (target.tagName.toLowerCase() === 'td') {
-        console.log(target.textContent);
-    }
-});
+// table.addEventListener('click', ({ target }) => {
+//     if (target.tagName.toLowerCase() === 'td') {
+//         console.log(target.textContent);
+//     }
+// });
+
+
+$(document).ready(function () {
+    // DOM loaded 
+    // alert("DOM")
+
+
+    // $(selectorExpression)
+
+
+    // const divElements = $('div, p')
+    // console.log(divElements);
+
+
+
+
+    // let trElements = $('table tr')
+    // console.log(trElements);
+
+    let customerDiv = $('#customerDiv')
+    // console.log(customerDiv);
+
+    // let wowClass = $('.wow')
+    // console.log(wowClass);
+
+    // const multipleClasses = $('.wow, .content__box')
+    // console.log(multipleClasses);
+
+
+    // const table = $('table[border]')
+    // console.log(table);
+
+    // const span = $('span:contains("site")')
+    // console.log(span);
+
+
+    const oddTr = $('tr:odd')
+    // console.log(oddTr);
+
+    const evenTr = $('tr:even')
+    // console.log(evenTr);
+
+    evenTr.each(function (index, element) {
+        // console.log(element, index, element.innerText);
+        // console.log($(this).text());
+        // console.log($(this).text());
+        this.title = `Current Index - ${index}`
+    })
+
+    let attrVal = customerDiv.attr('class', "daasd")
+    console.log(attrVal);
+
+})
