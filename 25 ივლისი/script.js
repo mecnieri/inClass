@@ -88,9 +88,6 @@ function calen(year, month) {
     let t = tbody.children;
     let arr = [];
 
-    y.innerText = year;
-    m.innerText = months[month]
-
     for (let i = 0; i < t.length; i++) {
         let d = t[i].children;
         for (let j = 0; j < d.length; j++) {
