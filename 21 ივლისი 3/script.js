@@ -4,8 +4,26 @@
 // let val = fontSize.value;
 // console.log(val);
 
-function myFunction() {
-    var x = document.getElementById("color");
-    x.value = setAttribute(document.getElementById("div1"), value);
 
-}
+
+let color;
+
+console.log(color);
+document.getElementById("div1").addEventListener("click", function myFunction() {
+    color = "red";
+    console.log(color);
+})
+document.getElementById("div2").addEventListener("click", function myFunction() {
+    color = "yellow";
+    console.log(color);
+})
+document.getElementById("div3").addEventListener("click", function myFunction() {
+    color = "green";
+    console.log(color);
+})
+
+document.getElementById("createColor").addEventListener("click", function myFunction() {
+    var x = document.getElementById("div4");
+    x.setAttribute("style", "background-color:" + color);
+
+})

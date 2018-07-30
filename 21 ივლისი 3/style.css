@@ -18,18 +18,27 @@ html {
 
 @media screen and (min-width:480px) and (max-width:639px) {}
 
-@media screen and (min-width:640px) {
+@media screen and (min-width:640px) {}
 
+div {
+    height: 100px;
+    line-height: 100px;
+    width: 100px;
+    border: 2px solid black;
+    margin: 10px;
+    float: left;
+    text-align: center;
+    
+}
 
+#div1 {
+    background-color: red;
+}
 
-    div{
-        height: 100px;
-        width: 100px;
-        border: 2px solid black;
-        margin: 10px;
-    }
+#div2 {
+    background-color: yellow;
+}
 
-
-
-
+#div3 {
+    background-color: green;
 }
