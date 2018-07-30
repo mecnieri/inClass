@@ -20,15 +20,38 @@ html {
 
 @media screen and (min-width:640px) {}
 
-div {
+#container,
+#container2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin: 20px auto;
+    border: 0;
+    width: 400px;
+}
+
+#container2 {
+    height: 120px;
+}
+
+#container>div,
+#container2>div {
     height: 100px;
     line-height: 100px;
     width: 100px;
     border: 2px solid black;
     margin: 10px;
-    float: left;
     text-align: center;
-    
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 20px;
+    color: aliceblue;
+    background-color: darkslategray;
 }
 
 #div1 {
@@ -42,3 +65,22 @@ div {
 #div3 {
     background-color: green;
 }
+#div4 {
+    background-color: pink;
+}
+#div5 {
+    background-color: gray;
+}
+#div6 {
+    background-color: blue;
+}
+#div7 {
+    background-color: teal;
+}
+#div8 {
+    background-color: aqua;
+}
+#div9 {
+    background-color: violet;
+}
+ 
