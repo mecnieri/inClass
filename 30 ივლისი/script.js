@@ -111,7 +111,8 @@ $(document).ready(function () {
         this.title = `Current Index - ${index}`
     })
 
-    let attrVal = customerDiv.attr('class', "daasd")
+    let attrVal = customerDiv.attr('class')
+    customerDiv.addClass('newClass--Example')
     console.log(attrVal);
 
 })
