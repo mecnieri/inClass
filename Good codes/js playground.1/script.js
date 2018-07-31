@@ -150,25 +150,3 @@
 //#endregion 
 
 
-
-a = Number(prompt("insert first number here"));
-y = Number(prompt("insert last number here"));
-
-let b = 0;
-let c = 0;
-for (let x = a; x < y + 1; x++) {
-
-    for (let i = 0; i < x + 1; i++) {
-
-        if (x % i == 0) {
-            b++;
-        }
-    }
-    if (b == 2) {
-        c++;
-        console.log(x + " is prime number");
-    }
-    b = 0;
-}
-
-console.log("total " + c + " numbers");
