@@ -230,3 +230,21 @@ console.log(printNumTwo());
 
 
 
+let w = "gamarjoba";
+let guessed = []
+for (let i = 0; i < w.length; i++) {
+    guessed.push("_")
+}
+guessed
+
+let a = "d"
+let arr = []
+
+
+for (let i = 0; i <= w.length; i++) {
+    if (a === w[i]) {
+        guessed[i] = w[i]
+    }
+}
+guessed
+
