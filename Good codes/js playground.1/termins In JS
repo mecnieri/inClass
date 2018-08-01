@@ -1,5 +1,7 @@
 statement  In HTML, JavaScript statements are "instruction" to be "executed" by the web browser.
 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 variable ცვლადი 
      const
      let
@@ -12,7 +14,7 @@ assignment  მნიშვნელობის მინიჭება =
     += 
     -=
     *=
-    /=╥
+    /=
 
 
 data type მონაცემის ტიპი 
@@ -38,6 +40,8 @@ data type მონაცემის ტიპი
 
 concatenation  ორი მნიშვნელობის გაერთინება სტრინგად!!     "7" + 5 = 75 !!!!!        და არა 12
 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 Array მასივი    ცვლადი რომელიც ინახავს ბევრ ელემენტს, მნიშვნელობა 
     Individual elements  ცალკეული ელემენტი, მნიშვნელობა 
     built-in methods
@@ -57,14 +61,16 @@ property    მახასიათებელი
 
 method ფუნქციაა, ოღონდ რამეზე მიწებებული მგონი 
 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 function 
     parameter
     argument 
 
     arrow function
 
-object 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-console.log(object);
+object 
 
 iterator method

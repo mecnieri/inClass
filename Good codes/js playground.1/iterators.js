@@ -88,4 +88,22 @@
 
 
 
+let moreThen = (function (t, n) {
+    return t +n
+})
+
+
+let a = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+let b = a.forEach(moreThen)
+console.log(b);
+
+let c = a.map(moreThen)
+console.log(c);
+
+let d = a.filter(moreThen)
+console.log(d);
+
+let e = a.reduce(moreThen)
+console.log(e);
 

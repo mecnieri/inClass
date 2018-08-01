@@ -171,3 +171,59 @@ for (let i = 0; i < 3; i++) {
     }
 }
 console.log(printNumTwo());
+
+// function toCamelCase(str) {
+//     while (str.includes("-")) {
+//         //  str.charAt(str.indexOf("-") + 1).toUpperCase();
+//          str.replace("-", "");
+//     }
+//     return str;
+// }
+
+
+// console.log(toCamelCase("the-stealth-warrior"));
+
+
+
+let restaurant = {
+    name: "ASB",
+    capacity: 75,
+    guests: 0,
+    seatParty(seatParty) {
+        var seatsLeft = this.capacity - this.guests - seatParty
+        seatsLeft
+        // return this.seatsLeft
+    },
+    // removeParty(removeParty) {
+    //     seatsLeft
+    //     seatsLeft += removeParty
+    //     return seatsLeft
+    // }
+    // checkAvialability(partySize) {
+    //     // seatsLeft = this.capacity - this.guests
+    //     seatsLeft
+    //     return seatsLeft >= partySize
+    // },
+}
+console.log(seatsLeft);
+restaurant.seatParty(72);
+// console.log(restaurant.checkAvialability(4));
+seatsLeft
+
+const Person = function (saxeli, gvari, asaki) {
+    console.log(this);
+    this.firstName = saxeli
+    console.log(this);
+    this.lastName = gvari
+    console.log(this);
+    this.age = asaki
+    console.log(this);
+}
+
+
+const me = new Person("Gio", "Abzianidze", 26)
+me
+
+
+const you = new Person("Natura", "Gatenashvili", 26)
+you
