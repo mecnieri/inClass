@@ -6,9 +6,9 @@ const COLOR_GREEN = '#0f0';
 const COLOR_ORANGE = '#ff7f00';
 
 // debugger;
- 
+
 //#region ცვლადის გამოცხადება, კოდის თანმიმდევრობის მნიშვნელობა 
- 
+
 // კოდი სრულდება თანმიმდევრულად, ზემოდან ქვემოთ და მარცხნიდან მარჯვნივ
 
 // ცვლადი აუცილებლად ჯერ უნდა იქნას გამოცხადებული
@@ -23,7 +23,7 @@ const COLOR_ORANGE = '#ff7f00';
 // //      საკმარისია ის რომ მხოლოდ ერთი ხაზით ქვემოთაა გამოცხადებული 
 // let message;
 // message = "my message";
-  
+
 // მაგ: 2.
 
 // let message; 
@@ -39,16 +39,31 @@ const COLOR_ORANGE = '#ff7f00';
 // // აქ ყველაფერი კარგადაა, ჯერ გამოცხადდა, 
 // // შემდეგ მიენიჭა მნიშვნელობა, ბოლოს გამოისახა
 
- 
+
 //#endregion 
 
 
 
- 
-let message;
-//console.log(message);
-message = "my message";
-let user = 'John', age = 33;
 
-console.log(message, user, age);
-af
+// let message;
+// //console.log(message);
+// message = "my message";
+// let user = 'John', age = 33;
+
+// console.log(message, user, age);
+// af
+
+if (true) {
+    if (true) {
+        let name = "gwwwwio"
+        console.log(name);
+    }
+}
+
+if (true) {
+    console.log(name);
+    console.log(typeof (name));
+}
+
+
+
