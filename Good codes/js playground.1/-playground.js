@@ -58,7 +58,7 @@
 //         }
 //     };
 // };
- 
+
 // function createCar(mName, mYear) {
 //     return {
 //         name: mName,
@@ -92,7 +92,7 @@
 //         }
 //     }
 // }
- 
+
 // var tom = new User("Том", 26);
 // // console.log(tom._age); // undefined - _age - ლოკალური ცვლადი
 // // console.log(tom.getAge()); // 26
@@ -123,12 +123,12 @@
 
 // let a = "gio"
 // let a = "sad"
-// console.log(a);
+// // console.log(a);
 
-const andza = function () {
-    console.log("dasd");
-}
-andza()
+// const andza = function () {
+//     console.log("dasd");
+// }
+// andza()
 
 
 // var printNumTwo;
@@ -162,15 +162,15 @@ andza()
 // }
 // console.log(printNumTwo());
 
-let printNumTwo;
-for (let i = 0; i < 3; i++) {
-    if (i === 2) {
-        printNumTwo = function () {
-            return i;
-        };
-    }
-}
-console.log(printNumTwo());
+// let printNumTwo;
+// for (let i = 0; i < 3; i++) {
+//     if (i === 2) {
+//         printNumTwo = function () {
+//             return i;
+//         };
+//     }
+// }
+// console.log(printNumTwo());
 
 // function toCamelCase(str) {
 //     while (str.includes("-")) {
@@ -194,16 +194,16 @@ console.log(printNumTwo());
 //         seatsLeft
 //         // return this.seatsLeft
 //     },
-    // removeParty(removeParty) {
-    //     seatsLeft
-    //     seatsLeft += removeParty
-    //     return seatsLeft
-    // }
-    // checkAvialability(partySize) {
-    //     // seatsLeft = this.capacity - this.guests
-    //     seatsLeft
-    //     return seatsLeft >= partySize
-    // },
+// removeParty(removeParty) {
+//     seatsLeft
+//     seatsLeft += removeParty
+//     return seatsLeft
+// }
+// checkAvialability(partySize) {
+//     // seatsLeft = this.capacity - this.guests
+//     seatsLeft
+//     return seatsLeft >= partySize
+// },
 // }
 // console.log(seatsLeft);
 // restaurant.seatParty(72);
@@ -230,21 +230,98 @@ console.log(printNumTwo());
 
 
 
-let w = "gamarjoba";
-let guessed = []
-for (let i = 0; i < w.length; i++) {
-    guessed.push("_")
-}
-guessed
+// let w = "gamarjoba";
+// let guessed = []
+// for (let i = 0; i < w.length; i++) {
+//     guessed.push("_")
+// }
+// guessed
 
-let a = "d"
+// let a = "d"
+// let arr = []
+
+
+// for (let i = 0; i <= w.length; i++) {
+//     if (a === w[i]) {
+//         guessed[i] = w[i]
+//     }
+// }
+// guessed
+
+// let p = document.querySelector('p')
+// console.log(p);
+// p.remove()
+// console.log(p);
+// console.log(p);
+
+// EXERCISE 2 
+// let salaries = {
+//     John: 100,
+//     Ann: 160,
+//     Peter: 130
+// }
+
+// let sum = 0;
+// for (a in salaries) {
+//     sum += salaries[a]
+// }
+// sum
+
+let product = {}
+product.name = "Laptop"
+product.price = 1000
+product.price = 1200
+console.log(product)
+
 let arr = []
-
-
-for (let i = 0; i <= w.length; i++) {
-    if (a === w[i]) {
-        guessed[i] = w[i]
-    }
+for (let a in product) {
+    arr.push(a)
+    arr.push(product[a])
 }
-guessed
+
+
+// console.log(arr);
+// const user = { n: "d" }
+
+// let cl = Object.assign({}, [product,user])
+// console.log(cl);
+
+
+// user.n = "daee"
+
+// console.log(user);
+
+// console.log(typeof (user));
+
+// let user = {
+//     name: "John",
+//     age: 30,
+//     good() {
+//         alert("good")
+//     }
+// };
+// user.sayHi = function () {
+//     alert(this.name + " hello");
+// };
+// user.sayHi()
+// //  user.good(  )
+// console.log(user);
+
+// (() => console.log(32+2))()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
