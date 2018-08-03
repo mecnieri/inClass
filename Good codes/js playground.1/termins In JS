@@ -27,6 +27,10 @@ data type მონაცემის ტიპი
     Symbol
     Undefined                        Undefined                 let some; არ არის გამოცხადებული. არ აქვს მნიშნველობა მინიჭებული.  
 
+
+Symbol Type
+
+
     typeof Undefined //Undefined
     typeof Null //object
     Null === Undefined
