@@ -35,10 +35,26 @@ let mainModule = (
             people.push(name);
             _updateDOM();
             $input.val('')
+            console.log(newVal);
         }
 
         function removePerson(event) {
             console.log(event);
+            let index;
+            if (event !== 0) {
+                if (typeof event === 'number') {
+                    event = event - 1;
+                    index = event;
+
+
+                }
+                else {
+                    let $remove = $(event.target).closest('li')
+                    index = $ul.find('li').index($remove)
+                }
+                people.splice(index, 1);
+                _updateDOM();
+            }
         }
 
         return {
