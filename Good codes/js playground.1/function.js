@@ -1,14 +1,4 @@
-
-// function getName(){
-//     alert("Name");
-// }
-
-// let getNameV2 = function(){
-//     alert("NameV2");
-// }
-// // getNameV2();
-
-
+ 
 
 
 // function sum(x, y) {
