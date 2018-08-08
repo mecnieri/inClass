@@ -28,3 +28,18 @@ let PubSub = (function () {
         }
     }
 })()
+
+let sub_1 = PubSub.subscribe('/onAdd', (data) => {
+    console.log('sub_1', data);
+})
+
+let sub_2 = PubSub.subscribe('/onAdd', (data) => {
+    console.log('sub_2', data);
+})
+
+PubSub.subscribe('/onRemove', (data) => {
+    console.log('/onRemove', data);
+})
+
+PubSub.publish('/onAdd', {name:"PubSub patttern expamle"})
+// PubSub.publish('/onAdd', {name:"PubSub patttern expamle"})
