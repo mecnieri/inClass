@@ -150,8 +150,8 @@
 //     }
 // }
 // console.log(printNumTwo());
-
-'use strict';
+// console.log(console);
+// 'use strict';
 // var printNumTwo;
 // for (var i = 0; i < 3; i++) {
 //     if (i === 2) {
@@ -267,17 +267,17 @@
 // }
 // sum
 
-let product = {}
-product.name = "Laptop"
-product.price = 1000
-product.price = 1200
-console.log(product)
+// let product = {}
+// product.name = "Laptop"
+// product.price = 1000
+// product.price = 1200
+// console.log(product)
 
-let arr = []
-for (let a in product) {
-    arr.push(a)
-    arr.push(product[a])
-}
+// let arr = []
+// for (let a in product) {
+//     arr.push(a)
+//     arr.push(product[a])
+// }
 
 
 // console.log(arr);
@@ -313,7 +313,7 @@ for (let a in product) {
 
 
 
-
+console.log(console);
 
 
 
