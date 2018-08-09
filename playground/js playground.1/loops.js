@@ -40,10 +40,10 @@
 
 //#endregion 
 
-let str = "gamarjova"
-let target = "r"
-let pos = -1;
-while ((pos = str.indexOf(target, pos + 1)) != -1) {
-    alert(`Found at ${pos}`);
-}
+// let str = "gamarjova"
+// let target = "r"
+// let pos = -1;
+// while ((pos = str.indexOf(target, pos + 1)) != -1) {
+//     alert(`Found at ${pos}`);
+// }
  
