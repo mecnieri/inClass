@@ -1,69 +1,52 @@
+// $('h1').myPlugin()
+// $('h1').myPlugin2()
+// $('h1')
+//     .styleElement({
+//         text: 'Hello from plugin',
+//         color: 'green',
+//         fontSize: '20px',
+//         backgroundColor: '#ccc',
+//     })
+
+// let worker = new Worker('work.js')
+// worker.postMessage('Hello my worker')
+// worker.addEventListener('message', (event) => {
+//     console.log(event.data);
+//     worker.terminate()
+//     console.log(event.data);
+
+// })
+let myStorage = window.localStorage;
 $(document).ready(function () {
-    // $('h1').myPlugin()
-    // $('h1').myPlugin2()
-    // $('h1')
-    //     .styleElement({
-    //         text: 'Hello from plugin',
-    //         color: 'green',
-    //         fontSize: '20px',
-    //         backgroundColor: '#ccc',
-    //     })
-
-    // let worker = new Worker('work.js')
-    // worker.postMessage('Hello my worker')
-    // worker.addEventListener('message', (event) => {
-    //     console.log(event.data);
-    //     worker.terminate()
-    //     console.log(event.data);
-
-    // })
-    let arr = []
-    let myStorage = window.localStorage;    // localStorage.clear()
-    let myJSON = ''
-    let jsn = ''
-    let html = ''
     fetch('https://jsonplaceholder.typicode.com/users')
         .then(response => response.json())
         .then(json => {
-            // json.forEach((json) => {
-            myJSON += JSON.stringify(json);
-            // document.getElementById("demo").innerHTML = myJSON;
+            console.log(json[5].name = "Giorgi Abzianidze");
+            console.log(json[5].username = "Giganti");
             for (key in json) {
-                // console.log(JSON.stringify(json[key]));
                 myStorage.setItem(key, JSON.stringify(json[key]));
             }
-            let jsn = JSON.parse(myStorage.getItem(3));
-            // for (key in jsn) {
-            //     console.log(key, jsn[key])
-            // }
-            // console.log(myStorage.getItem(3)),
+
             let length = JSON.parse(myStorage.length)
             for (let i = 0; i < length; i++) {
-                console.log(JSON.parse(myStorage.getItem(i)).username)
                 document.getElementById("demo").innerHTML += `${JSON.parse(myStorage.getItem(i)).id} <br>`
-                document.getElementById("demo").innerHTML += `${JSON.parse(myStorage.getItem(i)).username} <br>`
+                document.getElementById("demo").innerHTML += `${JSON.parse(myStorage.getItem(i)).name} <br>`
+                document.getElementById("demo").innerHTML += `${JSON.parse(myStorage.getItem(i)).website} <br>`
+                document.getElementById("demo").appendChild(document.createElement("div")).setAttribute("onclick", "averageFunc(this, Number(prompt('Please, enter number here')))")
+
             }
-            
-            //  document.getElementById("demo").innerHTML = `${jsn.username}`
-        }
-        ).then(
-
-            // console.log(typeof myStorage),
-            // console.log(myStorage[3]),
-            // console.log(typeof myStorage[3]),
-            // console.log(myStorage.getItem(3)),
-            // console.log(typeof myStorage.getItem(3)),
-            // console.log(JSON.parse(myStorage.getItem(3))),
-            // console.log(JSON.parse(myStorage[3])),
-            // // document.getElementById("demo").innerHTML = myStorage.getItem(3),
-
-        )
+        })
         .catch(error => {
             console.log(error);
         })
+
+
+
+
 })
-
-
+    function averageFunc() {
+        document.getElementById("demo").innerHTML =`${JSON.parse(myStorage.getItem(2)).name} <br>`
+    }
 // const jsonButton = document.querySelector('#generate');
 // const buttonContainer = document.querySelector('#buttonContainer');
 // const display = document.querySelector('#displayContainer');
