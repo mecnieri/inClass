@@ -47,6 +47,7 @@ $(document).ready(function () {
     function averageFunc() {
         document.getElementById("demo").innerHTML =`${JSON.parse(myStorage.getItem(2)).name} <br>`
     }
+    // alert("\u{1F60D}")
 // const jsonButton = document.querySelector('#generate');
 // const buttonContainer = document.querySelector('#buttonContainer');
 // const display = document.querySelector('#displayContainer');
