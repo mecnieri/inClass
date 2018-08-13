@@ -28,3 +28,17 @@ p {
     display: grid;
     grid-template-columns: 200px repeat(auto-fill, 100px);
 }
+
+.todos>div,
+.doneTasks>div,
+.startingTime>div,
+.allTasks>div,
+.deadLine>div,
+.daysLeft>div {
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    text-align: center;
+    background-color: silver;
+    margin: 10px 4px;
+    padding: 4px 0px;
+}

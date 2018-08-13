@@ -1,17 +1,29 @@
 let storage = window.localStorage;
+
+// sololearn
+
 if (storage.sololearn == "undefined") {
-    let count = 0;
-    storage.setItem("sololearn", count)
-    sololearnCount.innerHTML = count;
+    let countSolo = 0;
+    storage.setItem("sololearn", countSolo)
+    sololearnCount.innerHTML = countcountSolo;
 }
-let count = storage.getItem("sololearn");
+let countSolo = storage.getItem("sololearn");
+sololearnCount.innerHTML = countSolo;
 
 sololearnCount.addEventListener("click", function () {
-    count++;
-    sololearnCount.innerHTML = count;
-    storage.setItem("sololearn", count)
-    count = storage.getItem("sololearn");
-    console.log(sololearnCount);
+    countSolo++;
+    sololearnCount.innerHTML = countSolo;
+    storage.setItem("sololearn", countSolo)
+    countSolo = storage.getItem("sololearn");
+    console.log(countSolo);
 })
 
 
+for (let i = 1; i <= 6; i++) {
+    let now = new Date()
+    let tomorrow = new Date(2018, 8, 18, 5)
+    let result = Math.round((tomorrow - now) / 1000 / 60 / 60 / 24);
+
+
+    document.getElementById("dayLft" + i).innerHTML = result
+}
