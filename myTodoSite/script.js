@@ -1,10 +1,17 @@
 let storage = window.localStorage;
-console.log(sololearnCount);
+if (storage.sololearn == "undefined") {
+    let count = 0;
+    storage.setItem("sololearn", count)
+    sololearnCount.innerHTML = count;
+}
 let count = storage.getItem("sololearn");
-sololearnCount.innerHTML = count;
+
 sololearnCount.addEventListener("click", function () {
     count++;
     sololearnCount.innerHTML = count;
     storage.setItem("sololearn", count)
     count = storage.getItem("sololearn");
+    console.log(sololearnCount);
 })
+
+
