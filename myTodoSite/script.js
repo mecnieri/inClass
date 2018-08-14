@@ -67,7 +67,6 @@ dt3.addEventListener("click", function () {
     storage.setItem("freevids", countFreeVids)
     countFreeVids = storage.getItem("freevids");
     console.log(countFreeVids);
-    inserts()
 })
 
 for (let i = 1; i <= 6; i++) {
