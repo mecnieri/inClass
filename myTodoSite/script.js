@@ -1,6 +1,6 @@
 let storage = window.localStorage;
 let now = new Date()
-
+let month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 //#region sololearn
 
 if (storage.sololearn == "undefined") {
@@ -31,22 +31,9 @@ if (storage.freevids == "undefined") {
 let countFreeVids = storage.getItem("freevids");
 dt3.innerHTML = countFreeVids;
 
-dt3.addEventListener("click", function () {
-    countFreeVids++;
-    dt3.innerHTML = countFreeVids;
-    storage.setItem("freevids", countFreeVids)
-    countFreeVids = storage.getItem("freevids");
-    console.log(countFreeVids);
-})
 
 //#endregion 
 
-for (let i = 1; i <= 6; i++) {
-    let tomorrow = new Date(2018, 8, 18, 5)
-    let result = Math.round((tomorrow - now) / 1000 / 60 / 60 / 24);
-
-    document.getElementById("dayLft" + i).innerHTML = result
-}
 
 let freecodeVids = {
     doneTasks: countFreeVids,
@@ -61,14 +48,31 @@ let freecodeVids = {
     }
 };
 
-(function inserts() {
+function inserts() {
     pr3.innerHTML = (freecodeVids.doneTasks / freecodeVids.allTasks) * 100 + "%"
     dt3.innerHTML = freecodeVids.doneTasks;
     allTasks3.innerHTML = freecodeVids.allTasks;
 
-    st3.innerHTML = freecodeVids.start.getDate() + " - " + (freecodeVids.start.getMonth() + 1);
-    dl3.innerHTML = freecodeVids.end.getDate() + " - " + (freecodeVids.end.getMonth() + 1)
+    st3.innerHTML = freecodeVids.start.getDate() + " " + (month[freecodeVids.start.getMonth()]);
+    dl3.innerHTML = freecodeVids.end.getDate() + " " + (month[freecodeVids.end.getMonth()])
     dr3.innerHTML = freecodeVids.duration();
     dayLft3.innerHTML = freecodeVids.left();
 
-})()
+}
+inserts()
+
+dt3.addEventListener("click", function () {
+    countFreeVids++;
+    dt3.innerHTML = countFreeVids;
+    storage.setItem("freevids", countFreeVids)
+    countFreeVids = storage.getItem("freevids");
+    console.log(countFreeVids);
+    inserts()
+})
+
+for (let i = 1; i <= 6; i++) {
+    let tomorrow = new Date(2018, 8, 18, 5)
+    let result = Math.round((tomorrow - now) / 1000 / 60 / 60 / 24);
+
+    document.getElementById("dayLft" + i).innerHTML = result
+}
