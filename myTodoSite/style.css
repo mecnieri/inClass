@@ -34,6 +34,8 @@ p {
 .startingTime>div,
 .allTasks>div,
 .deadLine>div,
+.duration>div,
+.progress>div,
 .daysLeft>div {
     /* border: 1px solid black; */
     border-radius: 5px;
@@ -41,4 +43,5 @@ p {
     background-color: silver;
     margin: 10px 4px;
     padding: 4px 0px;
+    height: 26px;
 }
