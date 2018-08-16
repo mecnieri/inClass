@@ -24,4 +24,4 @@
 // console.log(/^q[a-d]+w$/.test('qaaaaaaaabbbbbaaaaaw'));
 // console.log(/[a-c]+/.exec('aaaaaaaaaaq'));
 
-let alt = //
+// let alt = 
