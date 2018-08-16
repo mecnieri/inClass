@@ -23,49 +23,80 @@ let auditingService = function () {
     }
 }
 
-let mediator = (function () {
-    let channels = {}
-    let subcribe = function (channel, context, func) {
-        if (!mediator.channels[channel]) {
-            mediator.channels[channel] = []
-        }
-        mediator.channels[channel].push({
-            context,
-            func,
-        });
+function ObserverList() {
+    this.observerList = []
+}
+
+ObserverList.prototype.add = function (obj) {
+    return this.observerList.push(obj)
+}
+
+
+ObserverList.prototype.get = function (index) {
+    if (index > -1 && index < this.observerList.length) {
+        return this.observerList[index]
     }
-    let publish = function (channel, ...args) {
-        if (!this.channels[channel]) {
-            return false
+}
+
+ObserverList.prototype.count = function () {
+    return this.observerList.length;
+}
+
+ObserverList.prototype.removeAt = function (index) {
+    this.observerList.splice(index, 1)
+}
+
+ObserverList.prototype.indexOf = function (obj, startIndex) {
+    let i = startIndex;
+    while (i < this.observerList.length) {
+        if (this.observerList[i] === obj) {
+            return i;
         }
-        // let args = Array.prototype.slice.call(arguments, 1)
-        for (let i = 0; i < mediator.channels[channel].length; i++) {
-            let sub = mediator.channels[channel][i];
-            sub.func.apply(sub.context, args)
-        }
+        i++;
     }
-    return {
-        channels: {},
-        subcribe,
-        publish
+    return -1;
+}
+
+let ObservableTask = function (data) {
+    Task.call(this, data);
+    this.observers = new ObserverList()
+}
+
+ObservableTask.prototype.addObserver = function (observer) {
+    this.observers.add(observer)
+}
+
+ObservableTask.prototype.removeObserver = function (observer) {
+    this.observers.removeAt(this.observers.indexOf(observer, 0))
+}
+
+ObservableTask.prototype.notify = function (context) {
+    let observerCount = this.observers.count()
+    for (let i = 0; i < observerCount; i++) {
+        //    let observerFunc =  this.observers.get(i)
+        //    observerFunc(context)
+        this.observers.get(i)(context)
     }
-})();
-let task1 = new Task({
-    name: 'Mediator Pattern Demo',
-    user: 'John ',
+}
+
+ObservableTask.prototype.save = function () {
+    this.notify(this)
+    Task.prototype.save.call(this)
+}
+
+let task1 = new ObservableTask({
+    name:'Observale Demo',
+    user: 'Observable'
 });
 
 let not = new notificationService();
 let ls = new loggingService();
 let audit = new auditingService()
 
-mediator.subcribe('complete', not, not.update)
-mediator.subcribe('complete', ls, ls.update)
-mediator.subcribe('complete', audit, audit.update)
+task1.addObserver(not.update)
+task1.addObserver(ls.update)
+task1.addObserver(audit.update)
+task1.save()
 
-task1.complete = function () {
-    mediator.publish('complete', this)
-    Task.prototype.complete.call(this)
-}
-
-task1.complete()
+task1.removeObserver(audit)
+task1.save()
