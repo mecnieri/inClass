@@ -16,38 +16,52 @@
 // console.log(xhr.responseType);
 // console.log(xhr.onreadystatechange());
 
-// Information to reach API
-const xhr = new XMLHttpRequest();
-const url ="https://api.datamuse.com/words?"
-const queryParams = 'rel_rhy='
-// Selecting page elements
-const inputField = document.querySelector('#input');
-const submit = document.querySelector('#submit');
-const responseField = document.querySelector('#responseField');
+// // Information to reach API
+// const xhr = new XMLHttpRequest();
+// const url ="https://api.datamuse.com/words?"
+// const queryParams = 'rel_rhy='
+// // Selecting page elements
+// const inputField = document.querySelector('#input');
+// const submit = document.querySelector('#submit');
+// const responseField = document.querySelector('#responseField');
 
-// AJAX function
-const getSuggestions = () => {
-const wordQuery = inputField.value;
-  const endpoint = url + queryParams + wordQuery;
-const xhr = new XMLHttpRequest();
-  xhr.responseType = 'json'
-  xhr.onreadystatechange = ()=> {
-    if (xhr.readyState === XMLHttpRequest.DONE) {
-renderResponse(xhr.response)      
-      xhr.open('GET', endpoint )
-xhr.send()
+// // AJAX function
+// const getSuggestions = () => {
+// const wordQuery = inputField.value;
+//   const endpoint = url + queryParams + wordQuery;
+// const xhr = new XMLHttpRequest();
+//   xhr.responseType = 'json'
+//   xhr.onreadystatechange = ()=> {
+//     if (xhr.readyState === XMLHttpRequest.DONE) {
+// renderResponse(xhr.response)      
+//       xhr.open('GET', endpoint )
+// xhr.send()
+// }
+//   }
+
+// }
+
+// // Clear previous results and display results to webpage
+// const displaySuggestions = (event) => {
+//   event.preventDefault();
+//   while(responseField.firstChild){
+//     responseField.removeChild(responseField.firstChild);
+//   };
+//   getSuggestions();
+// }
+
+// submit.addEventListener('click', displaySuggestions);
+// window.onload = function(){
+
+let http = new XMLHttpRequest();
+console.log(http);
+
+http.onreadystatechange = function(){
+  console.log(http);
 }
-  }
-
-}
-
-// Clear previous results and display results to webpage
-const displaySuggestions = (event) => {
-  event.preventDefault();
-  while(responseField.firstChild){
-    responseField.removeChild(responseField.firstChild);
-  };
-  getSuggestions();
-}
-
-submit.addEventListener('click', displaySuggestions);
+// console.log(http.readyState);
+http.open("GET", "https://api.datamuse.com/words?", true)
+// console.log(http.readyState);
+http.send()
+// console.log(http.readyState);
+// }
