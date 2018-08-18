@@ -1,0 +1,21 @@
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width:479px) {}
+
+@media screen and (min-width:480px) and (max-width:639px) {}
+
+@media screen and (min-width:640px) {}
