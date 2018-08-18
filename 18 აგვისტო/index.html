@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://www.shareicon.net/data/128x128/2015/09/20/104334_avatar_512x512.png">
-    <link rel="stylesheet" href="style.css">
-    <title>Hi there... yes, I'm ninja</title>
+    <title>JS DragNDrop</title>
+    <style>
+        [data-role='drag-drop-target'] {
+            float: left;
+            width: 500px;
+            height: 300px;
+            margin: 10px;
+            padding: 10px;
+            border: 3px solid #ddd;
+            border-radius: 5px;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .over {
+            background-color: #ffc;
+        }
+        [draggable="true"]{
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .drag {
+            opacity: 0.25;
+        }
+    </style>
 </head>
 <body>
-    
-    <script src="jquery.min.js"></script>
+    <div id="source__container" data-role="drag-drop-target">
+        <img src="Capture.png" alt="" draggable="true" id="snapshot">
+    </div>
+
+    <div id="source__container_2" data-role="drag-drop-target">
+        <img src="Capture.png" alt="" draggable="true" id="snapshot_2">
+    </div>
+
+    <div id="target__container" data-role="drag-drop-target"></div>
+    <script src="script2.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>
