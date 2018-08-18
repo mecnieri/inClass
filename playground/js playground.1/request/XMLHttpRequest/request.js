@@ -54,13 +54,19 @@
 // window.onload = function(){
 
 let http = new XMLHttpRequest();
-console.log(http);
+// console.log(http);
 
-http.onreadystatechange = function(){
-  console.log(http);
+
+http.onreadystatechange = function () {
+  console.log(this.readyState);
+  console.log(this.status);
+  if (this.readyState === 4 && this.status === 200) {
+    console.log(JSON.parse(http.response)[0].name);
+  }
 }
 // console.log(http.readyState);
-http.open("GET", "https://api.datamuse.com/words?", true)
+http.open("GET", "https://jsonplaceholder.typicode.com/users", true)
+// console.log(http);
 // console.log(http.readyState);
 http.send()
 // console.log(http.readyState);
