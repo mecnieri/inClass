@@ -86,28 +86,3 @@ console.log(list.head().next)
 console.log(list.head().next.next)
 console.log(list.head().next.next.next)
 console.log(list.head().next.next.next.next)
-// console.log(list.head().next)
-// console.log(list.head().next)
-// console.log(list.valueAt(0))
-// console.log(list.valueAt(1))
-// console.log(list.valueAt(2))
-// console.log(list.valueAt(3))
-// console.log(list.valueAt(4))
-// console.log(`length - ${list.length()}`)
-
-// console.log(list.indexOf(16))
-// console.log(`head - ${list)
-
-
-
-
-
-
-        // if (index === 0) {
-        //     return current
-        // }
-
-        // do {
-        //     count++;
-        //     current = current.next;
-        // }
