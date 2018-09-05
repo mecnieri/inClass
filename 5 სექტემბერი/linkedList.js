@@ -74,16 +74,25 @@ function LinkedList() {
 
 
 let list = new LinkedList()
+
 list.add(2)
 list.add(13)
 list.add(16)
 list.add(20)
-// console.log(list)
-console.log(list.valueAt(0))
-console.log(list.valueAt(1))
-console.log(list.valueAt(2))
-console.log(list.valueAt(3))
-console.log(list.valueAt(4))
+ 
+
+console.log(list.head())
+console.log(list.head().next)
+console.log(list.head().next.next)
+console.log(list.head().next.next.next)
+console.log(list.head().next.next.next.next)
+// console.log(list.head().next)
+// console.log(list.head().next)
+// console.log(list.valueAt(0))
+// console.log(list.valueAt(1))
+// console.log(list.valueAt(2))
+// console.log(list.valueAt(3))
+// console.log(list.valueAt(4))
 // console.log(`length - ${list.length()}`)
 
 // console.log(list.indexOf(16))
