@@ -1,77 +1,65 @@
 let storage = window.localStorage;
 let now = new Date()
 let month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-//#region sololearn
-
-if (storage.sololearn == "undefined") {
-    let countSolo = 0;
-    storage.setItem("sololearn", countSolo)
-    dt1.innerHTML = countcountSolo;
-}
-let countSolo = storage.getItem("sololearn");
-dt1.innerHTML = countSolo;
-
-dt1.addEventListener("click", function () {
-    countSolo++;
-    dt1.innerHTML = countSolo;
-    storage.setItem("sololearn", countSolo)
-    countSolo = storage.getItem("sololearn");
-    console.log(countSolo);
-})
-//#endregion 
-
-//#region 
-
-if (storage.freevids == "undefined") {
-    let countFreeVids = 0;
-    storage.setItem("sololearn", countSolo)
-    dt3.innerHTML = countFreeVids;
-}
-
-let countFreeVids = storage.getItem("freevids");
-dt3.innerHTML = countFreeVids;
-
-
-//#endregion 
-
-
-let freecodeVids = {
-    doneTasks: countFreeVids,
-    allTasks: 100,
-    start: new Date(2018, 7, 14),
-    end: new Date(2018, 8, 17),
-    duration() {
+class Todo {
+    constructor(id, doneTasks, allTasks, start, end) {
+        this.id = id;
+        this.doneTasks = doneTasks;
+        this.allTasks = allTasks;
+        this.start = start;
+        this.allTasks = allTasks;
+        this.end = end;
+    }
+    get duration() {
+        return this.calcDuration;
+    }
+    calcDuration() {
         return Math.round(this.end - this.start) / 1000 / 60 / 60 / 24;
-    },
-    left() {
+    }
+    get left() {
+        return this.calcLeft;
+    }
+    calcLeft() {
         return Math.round((this.end - now) / 1000 / 60 / 60 / 24);
     }
-};
+}
+let freecodeVids = new Todo(3, 0, 100, new Date(2018, 7, 14), new Date(2018, 8, 17));
+let algorithms = new Todo(7, 43, 133, new Date(2018, 8, 11), new Date(2018, 8, 24));
+let udemy = new Todo(6, 63, 155, new Date(2018, 6, 11), new Date(2018, 8, 24));
+let fundamentals = new Todo(8, 13, 85, new Date(2018, 8, 11), new Date(2018, 8, 24));
 
-function inserts() {
-    pr3.innerHTML = (freecodeVids.doneTasks / freecodeVids.allTasks) * 100 + "%"
-    dt3.innerHTML = freecodeVids.doneTasks;
-    allTasks3.innerHTML = freecodeVids.allTasks;
-
-    st3.innerHTML = freecodeVids.start.getDate() + " " + (month[freecodeVids.start.getMonth()]);
-    dl3.innerHTML = freecodeVids.end.getDate() + " " + (month[freecodeVids.end.getMonth()])
-    dr3.innerHTML = freecodeVids.duration();
-    dayLft3.innerHTML = freecodeVids.left();
+let arr = [freecodeVids, algorithms, fundamentals, udemy]
+if (storage[3] == "undefined") {
+    freecodeVids.doneTasks = 0;
+} else {
+    freecodeVids.doneTasks = storage.getItem("3");
+    algorithms.doneTasks = storage.getItem("7");
+    fundamentals.doneTasks = storage.getItem("8");
+    udemy.doneTasks = storage.getItem("6");
 
 }
-inserts()
 
-dt3.addEventListener("click", function () {
-    countFreeVids++;
-    dt3.innerHTML = countFreeVids;
-    storage.setItem("freevids", countFreeVids)
-    countFreeVids = storage.getItem("freevids");
-    console.log(countFreeVids);
-})
 
-for (let i = 1; i <= 6; i++) {
-    let tomorrow = new Date(2018, 8, 18, 5)
-    let result = Math.round((tomorrow - now) / 1000 / 60 / 60 / 24);
+function inserts(obj) {
+    document.getElementById('dt' + obj.id).innerHTML = obj.doneTasks;
+    document.getElementById('pr' + obj.id).innerHTML = Math.round((obj.doneTasks / obj.allTasks) * 100) + "%"
+    document.getElementById('allTasks' + obj.id).innerHTML = obj.allTasks;
+    document.getElementById('st' + obj.id).innerHTML = obj.start.getDate() + " " + (month[obj.start.getMonth()]);
+    document.getElementById('dl' + obj.id).innerHTML = obj.end.getDate() + " " + (month[obj.end.getMonth()])
+    document.getElementById('dr' + obj.id).innerHTML = obj.duration();
+    document.getElementById('dayLft' + obj.id).innerHTML = obj.left();
 
-    document.getElementById("dayLft" + i).innerHTML = result
 }
+inserts(freecodeVids);
+inserts(algorithms);
+inserts(fundamentals);
+inserts(udemy);
+
+document.querySelectorAll('.doneTasks')[0].addEventListener('click', function (e) {
+    let idd = Number(e.target.id.slice(2));
+    let ob = arr.find(t => t.id === idd);
+    ob.doneTasks++;
+    storage.setItem(`${ob.id}`, ob.doneTasks)
+    ob.doneTasks = storage.getItem(`${ob.id}`);
+    inserts(ob)
+});
