@@ -26,7 +26,7 @@ p {
 
 .myList {
     display: grid;
-    grid-template-columns: 200px repeat(auto-fill, 100px);
+    grid-template-columns: 200px repeat(auto-fill, 110px);
 }
 
 .todos>div,
@@ -36,6 +36,7 @@ p {
 .deadLine>div,
 .duration>div,
 .progress>div,
+.timeProgress>div,
 .daysLeft>div {
     /* border: 1px solid black; */
     border-radius: 5px;

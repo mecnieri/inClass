@@ -10,7 +10,7 @@ class Todo {
         this.start = start;
         this.allTasks = allTasks;
         this.end = end;
-        this.timeProgress = (this.duration() - this.left()) / this.duration() * 100 + "%"
+        this.timeProgress = Math.round((this.duration() - this.left()) / this.duration() * 100) + "%"
     }
     get duration() {
         return this.calcDuration;
@@ -32,7 +32,7 @@ let fundamentals = new Todo(8, 'fundamentals', 13, 85, new Date(2018, 8, 11), ne
 let sound = new Audio()
 sound.src = "Button Positive.mp3"
 let arr = [freecodeVids, algorithms, fundamentals, udemy]
-if (storage[3] == "undefined") {
+if (storage.freecodeVids == "undefined") {
     freecodeVids.doneTasks = 0;
 } else {
     freecodeVids.doneTasks = storage.getItem("freecodeVids");
@@ -42,9 +42,14 @@ if (storage[3] == "undefined") {
 
 }
 
+console.log(freecodeVids.timeProgress);
+console.log(udemy.timeProgress);
+console.log(algorithms.timeProgress);
+console.log(fundamentals.timeProgress);
 
 function inserts(obj) {
     document.getElementById('dt' + obj.id).innerHTML = obj.doneTasks;
+    document.getElementById('tmp' + obj.id).innerHTML = obj.timeProgress;
     document.getElementById('pr' + obj.id).innerHTML = Math.round((obj.doneTasks / obj.allTasks) * 100) + "%"
     document.getElementById('allTasks' + obj.id).innerHTML = obj.allTasks;
     document.getElementById('st' + obj.id).innerHTML = obj.start.getDate() + " " + (month[obj.start.getMonth()]);
