@@ -10,7 +10,19 @@ class Todo {
         this.start = start;
         this.allTasks = allTasks;
         this.end = end;
-        this.timeProgress = Math.round((this.duration() - this.left()) / this.duration() * 100) + "%"
+        this.timeProgress = Math.round((this.duration() - this.left()) / this.duration() * 100) + "%";
+    }
+    get progress() {
+        return this.calcProgress;
+    }
+    calcProgress() {
+        return Math.round((this.doneTasks / this.allTasks) * 100) + "%";
+    }
+    get advanced() {
+        return this.calcAdvance;
+    }
+    calcAdvance() {
+        return this.progress().slice(0, -1) - this.timeProgress.slice(0, -1) + '%';
     }
     get duration() {
         return this.calcDuration;
@@ -25,7 +37,7 @@ class Todo {
         return Math.round((this.end - now) / 1000 / 60 / 60 / 24);
     }
 }
-let freecodeVids = new Todo(3, 'freecodeVids', 0, 100, new Date(2018, 7, 14), new Date(2018, 8, 17));
+let freecodeVids = new Todo(4, 'freecodeVids', 0, 100, new Date(2018, 7, 14), new Date(2018, 8, 17));
 let algorithms = new Todo(7, 'algorithms', 43, 133, new Date(2018, 8, 11), new Date(2018, 8, 24));
 let udemy = new Todo(6, 'udemy', 63, 155, new Date(2018, 6, 11), new Date(2018, 8, 24));
 let fundamentals = new Todo(8, 'fundamentals', 13, 85, new Date(2018, 8, 11), new Date(2018, 8, 24));
@@ -42,15 +54,11 @@ if (storage.freecodeVids == "undefined") {
 
 }
 
-console.log(freecodeVids.timeProgress);
-console.log(udemy.timeProgress);
-console.log(algorithms.timeProgress);
-console.log(fundamentals.timeProgress);
-
 function inserts(obj) {
     document.getElementById('dt' + obj.id).innerHTML = obj.doneTasks;
+    document.getElementById('pr' + obj.id).innerHTML = obj.progress();
+    document.getElementById('advnc' + obj.id).innerHTML = obj.advanced();
     document.getElementById('tmp' + obj.id).innerHTML = obj.timeProgress;
-    document.getElementById('pr' + obj.id).innerHTML = Math.round((obj.doneTasks / obj.allTasks) * 100) + "%"
     document.getElementById('allTasks' + obj.id).innerHTML = obj.allTasks;
     document.getElementById('st' + obj.id).innerHTML = obj.start.getDate() + " " + (month[obj.start.getMonth()]);
     document.getElementById('dl' + obj.id).innerHTML = obj.end.getDate() + " " + (month[obj.end.getMonth()])
@@ -72,3 +80,21 @@ document.querySelectorAll('.doneTasks')[0].addEventListener('click', function (e
     sound.play();
     inserts(ob)
 });
+
+function checkFunc() {
+    var checkBox = document.getElementById("myCheck");
+    if (checkBox.checked == true) {
+        document.querySelectorAll('.startingTime')[0].style.display = "none";
+        document.querySelectorAll('.duration')[0].style.display = "none";
+        document.querySelectorAll('.deadLine')[0].style.display = "none";
+        document.querySelectorAll('.allTasks')[0].style.display = "none";
+        document.querySelectorAll('.timeProgress')[0].style.display = "none";
+    }
+    else {
+        document.querySelectorAll('.startingTime')[0].style.display = "block";
+        document.querySelectorAll('.duration')[0].style.display = "block";
+        document.querySelectorAll('.deadLine')[0].style.display = "block";
+        document.querySelectorAll('.allTasks')[0].style.display = "block";
+        document.querySelectorAll('.timeProgress')[0].style.display = "block";
+    }
+}
