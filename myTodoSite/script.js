@@ -27,7 +27,8 @@ let freecodeVids = new Todo(3, 0, 100, new Date(2018, 7, 14), new Date(2018, 8, 
 let algorithms = new Todo(7, 43, 133, new Date(2018, 8, 11), new Date(2018, 8, 24));
 let udemy = new Todo(6, 63, 155, new Date(2018, 6, 11), new Date(2018, 8, 24));
 let fundamentals = new Todo(8, 13, 85, new Date(2018, 8, 11), new Date(2018, 8, 24));
-
+let sound = new Audio()
+sound.src = "Button Positive.mp3"
 let arr = [freecodeVids, algorithms, fundamentals, udemy]
 if (storage[3] == "undefined") {
     freecodeVids.doneTasks = 0;
@@ -61,5 +62,6 @@ document.querySelectorAll('.doneTasks')[0].addEventListener('click', function (e
     ob.doneTasks++;
     storage.setItem(`${ob.id}`, ob.doneTasks)
     ob.doneTasks = storage.getItem(`${ob.id}`);
+    sound.play();
     inserts(ob)
 });
