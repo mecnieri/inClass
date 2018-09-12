@@ -61,10 +61,24 @@ function updateTable(obj) {
     document.getElementById('dl' + obj.id).innerHTML = obj.end.getDate() + " " + (month[obj.end.getMonth()])
     document.getElementById('dr' + obj.id).innerHTML = obj.duration();
     document.getElementById('dayLft' + obj.id).innerHTML = obj.left();
-
+    for (let i = 1; i <= 8; i++) {
+        let a = document.querySelector('#advnc' + i).style;
+        let b = document.querySelector('#advnc' + i).innerText.slice(0, -1)
+        if (b <= -10) {
+            a.background = 'red'
+        } else if (b < 0) {
+            a.background = 'pink'
+        } else if (b < 10 && b > 0) {
+            a.background = 'lightgreen'
+        } else if (b >= 10) {
+            a.background = 'green'
+        } else {
+            a.background = 'silver'
+        }
+    }
 }
 for (o of arr) { updateTable(o) }
-document.querySelectorAll('.doneTasks')[0].addEventListener('click', function (e) {
+document.querySelector('.doneTasks').addEventListener('click', function (e) {
     let idd = Number(e.target.id.slice(2));
     let ob = arr.find(t => t.id === idd);
     ob.doneTasks++;
@@ -99,4 +113,14 @@ if (myCheck.checked) {
 //#endregion 
 
 
-pr3.style.background = 'rgb(' + 200 + ',' + 100 + ',' + 192 + ')'
+// pr3.style.background = 'rgb(' + 200 + ',' + 100 + ',' + 192 + ')'
+
+
+
+
+
+
+
+
+
+
