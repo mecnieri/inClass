@@ -26,8 +26,14 @@ p {
 
 .myList {
     display: grid;
-    grid-template-columns: 200px repeat(auto-fill, 110px);
-}
+    grid-template-columns: 200px 1000px;
+ }
+
+#toScroll {
+    display: grid;
+    grid-template-columns: repeat(300, 120px);
+     overflow-x: auto;
+ }
 
 .todos>div,
 .doneTasks>div,
@@ -38,6 +44,7 @@ p {
 .progress>div,
 .advanced>div,
 .timeProgress>div,
+.minNeeds>div,
 .daysLeft>div {
     /* border: 1px solid black; */
     border-radius: 5px;
@@ -57,4 +64,3 @@ p {
     top: 10px;
     right: 30px;
 }
-

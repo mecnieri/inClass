@@ -36,10 +36,16 @@ class Todo {
     calcLeft() {
         return Math.round((this.end - now) / 1000 / 60 / 60 / 24);
     }
+    get minimumNeeded() {
+        return this.calcMin;
+    }
+    calcMin() {
+        return Math.round((this.allTasks - this.doneTasks) / this.left())
+    }
 }
 let freecodeVids = new Todo(4, 'freecodeVids', 0, 100, new Date(2018, 7, 14), new Date(2018, 8, 17));
 let algorithms = new Todo(7, 'algorithms', 43, 133, new Date(2018, 8, 11), new Date(2018, 8, 24));
-let udemy = new Todo(6, 'udemy', 63, 155, new Date(2018, 6, 11), new Date(2018, 8, 24));
+let udemy = new Todo(6, 'udemy', 63, 155, new Date(2018, 8, 4), new Date(2018, 8, 24));
 let fundamentals = new Todo(8, 'fundamentals', 13, 85, new Date(2018, 8, 11), new Date(2018, 8, 24));
 let arr = [freecodeVids, algorithms, fundamentals, udemy];
 let sound = new Audio();
@@ -50,8 +56,8 @@ if (storage.freecodeVids !== "undefined") {
     fundamentals.doneTasks = storage.getItem("fundamentals");
     udemy.doneTasks = storage.getItem("udemy");
 }
-
-function updateTable(obj) {
+ 
+ function updateTable(obj) {
     document.getElementById('dt' + obj.id).innerHTML = obj.doneTasks;
     document.getElementById('pr' + obj.id).innerHTML = obj.progress();
     document.getElementById('advnc' + obj.id).innerHTML = obj.advanced();
@@ -61,6 +67,7 @@ function updateTable(obj) {
     document.getElementById('dl' + obj.id).innerHTML = obj.end.getDate() + " " + (month[obj.end.getMonth()])
     document.getElementById('dr' + obj.id).innerHTML = obj.duration();
     document.getElementById('dayLft' + obj.id).innerHTML = obj.left();
+    document.getElementById('mntd' + obj.id).innerHTML = obj.minimumNeeded();
     for (let i = 1; i <= 8; i++) {
         let a = document.querySelector('#advnc' + i).style;
         let b = document.querySelector('#advnc' + i).innerText.slice(0, -1)
@@ -98,6 +105,7 @@ if (myCheck.checked) {
             document.querySelectorAll('.deadLine')[0].style.display = "none";
             document.querySelectorAll('.allTasks')[0].style.display = "none";
             document.querySelectorAll('.timeProgress')[0].style.display = "none";
+            document.querySelectorAll('.daysLeft')[0].style.display = "none";
         }
         else {
             document.querySelectorAll('.startingTime')[0].style.display = "block";
@@ -105,6 +113,7 @@ if (myCheck.checked) {
             document.querySelectorAll('.deadLine')[0].style.display = "block";
             document.querySelectorAll('.allTasks')[0].style.display = "block";
             document.querySelectorAll('.timeProgress')[0].style.display = "block";
+            document.querySelectorAll('.daysLeft')[0].style.display = "block";
         }
     }
     checkFunc()
