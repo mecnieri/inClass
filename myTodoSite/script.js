@@ -48,6 +48,13 @@ class Todo {
     calcMin() {
         return Math.round((this.allTasks - this.doneTasks) / this.left())
     }
+    get todayMin() {
+        return this.calcTodayMin;
+    }
+    calcTodayMin() {
+        return this.minimumNeeded() - dailyResults[0][this.name]
+    }
+
 }
 let freecodeVids = new Todo(4, 'freecodeVids', 0, 100, new Date(2018, 7, 14), new Date(2018, 8, 17));
 let algorithms = new Todo(7, 'algorithms', 43, 133, new Date(2018, 8, 11), new Date(2018, 8, 24));
@@ -62,7 +69,7 @@ if (storage.freecodeVids !== "undefined") {
     udemy.doneTasks = storage.getItem("udemy");
 }
 
-
+console.log(udemy.todayMin());
 class Objs {
     constructor(date, udemy, freecodeVids, fundamentals, algorithms) {
         this.date = date,
@@ -88,6 +95,7 @@ function updateTable(obj) {
     document.getElementById('dr' + obj.id).innerHTML = obj.duration();
     document.getElementById('dayLft' + obj.id).innerHTML = obj.left();
     document.getElementById('mntd' + obj.id).innerHTML = obj.minimumNeeded();
+    document.getElementById('tdMn' + obj.id).innerHTML = obj.todayMin();
     for (let i = 1; i <= 8; i++) {
         let a = document.querySelector('#advnc' + i).style;
         let b = document.querySelector('#advnc' + i).innerText.slice(0, -1)
@@ -105,7 +113,7 @@ function updateTable(obj) {
     }
 }
 for (o of arr) { updateTable(o) }
- document.querySelector('.doneTasks').addEventListener('click', function (e) {
+document.querySelector('.doneTasks').addEventListener('click', function (e) {
     let idd = Number(e.target.id.slice(2));
     let ob = arr.find(t => t.id === idd);
     ob.doneTasks++;
@@ -129,6 +137,7 @@ if (myCheck.checked) {
             document.querySelectorAll('.allTasks')[0].style.display = "none";
             document.querySelectorAll('.timeProgress')[0].style.display = "none";
             document.querySelectorAll('.daysLeft')[0].style.display = "none";
+            document.querySelectorAll('.minNeeds')[0].style.display = "none";
         }
         else {
             document.querySelectorAll('.startingTime')[0].style.display = "block";
@@ -137,6 +146,7 @@ if (myCheck.checked) {
             document.querySelectorAll('.allTasks')[0].style.display = "block";
             document.querySelectorAll('.timeProgress')[0].style.display = "block";
             document.querySelectorAll('.daysLeft')[0].style.display = "block";
+            document.querySelectorAll('.minNeeds')[0].style.display = "block";
         }
     }
     checkFunc()
