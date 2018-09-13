@@ -1,6 +1,12 @@
 let storage = window.localStorage;
 let now = new Date();
+let date = new Date().getDate()
+let dailyResults = JSON.parse(storage.getItem("Daily Results"));
 let month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+let sound = new Audio();
+sound.src = "Button Positive.mp3";
+console.log(dailyResults);
+
 class Todo {
     constructor(id, name, doneTasks, allTasks, start, end) {
         this.id = id;
@@ -48,16 +54,30 @@ let algorithms = new Todo(7, 'algorithms', 43, 133, new Date(2018, 8, 11), new D
 let udemy = new Todo(6, 'udemy', 63, 155, new Date(2018, 8, 4), new Date(2018, 8, 24));
 let fundamentals = new Todo(8, 'fundamentals', 13, 85, new Date(2018, 8, 11), new Date(2018, 8, 24));
 let arr = [freecodeVids, algorithms, fundamentals, udemy];
-let sound = new Audio();
-sound.src = "Button Positive.mp3";
+
 if (storage.freecodeVids !== "undefined") {
     freecodeVids.doneTasks = storage.getItem("freecodeVids");
     algorithms.doneTasks = storage.getItem("algorithms");
     fundamentals.doneTasks = storage.getItem("fundamentals");
     udemy.doneTasks = storage.getItem("udemy");
 }
- 
- function updateTable(obj) {
+
+
+class Objs {
+    constructor(date, udemy, freecodeVids, fundamentals, algorithms) {
+        this.date = date,
+            this.udemy = udemy,
+            this.freecodeVids = freecodeVids,
+            this.fundamentals = fundamentals,
+            this.algorithms = algorithms
+    }
+}
+if (date !== dailyResults[0].date) {
+    dailyResults.unshift(new Objs(date, 0, 0, 0, 0))
+    storage.setItem("Daily Results", JSON.stringify(dailyResults))
+}
+
+function updateTable(obj) {
     document.getElementById('dt' + obj.id).innerHTML = obj.doneTasks;
     document.getElementById('pr' + obj.id).innerHTML = obj.progress();
     document.getElementById('advnc' + obj.id).innerHTML = obj.advanced();
@@ -85,14 +105,17 @@ if (storage.freecodeVids !== "undefined") {
     }
 }
 for (o of arr) { updateTable(o) }
-document.querySelector('.doneTasks').addEventListener('click', function (e) {
+ document.querySelector('.doneTasks').addEventListener('click', function (e) {
     let idd = Number(e.target.id.slice(2));
     let ob = arr.find(t => t.id === idd);
     ob.doneTasks++;
+    dailyResults[0][ob.name]++;
     storage.setItem(`${ob.name}`, ob.doneTasks)
     ob.doneTasks = storage.getItem(`${ob.name}`);
     sound.play();
-    updateTable(ob)
+    updateTable(ob);
+    storage.setItem("Daily Results", JSON.stringify(dailyResults))
+
 });
 
 // #region show only main 
