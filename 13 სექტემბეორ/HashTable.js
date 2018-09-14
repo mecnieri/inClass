@@ -25,13 +25,25 @@ class HashTable {
 }
 
 let hTable = new HashTable()
+ 
 
-console.log(hTable.add("test"));
+console.log(hTable.add("1ae"));
+console.log(hTable.add("1cd"));
 console.log(hTable.table);
-console.log(hTable.table[169]);
-console.log(hTable.hash('test', 255))
-console.log(hTable.check('test', 255));
-hTable.remove('test');
+// console.log(hTable.table[169]);
+// console.log(hTable.hash('1ae', 255))
+// console.log(hTable.hash('1cd', 255))
+// console.log(hTable.check('test', 255));
+// hTable.remove('test');
 
 console.log(hTable.table);
-console.log(hTable.table[169]);
+// console.log(hTable.table[169]);
+let ar = []
+ar[2]='pushkin'
+console.log(ar);
+delete ar[2]
+console.log(ar);
+
+var a = "d"
+var a = "da"
+console.log(a);

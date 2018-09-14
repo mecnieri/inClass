@@ -156,13 +156,3 @@ if (myCheck.checked) {
 
 
 // pr3.style.background = 'rgb(' + 200 + ',' + 100 + ',' + 192 + ')'
-
-
-
-
-
-
-
-
-
-
