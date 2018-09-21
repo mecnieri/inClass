@@ -26,15 +26,10 @@ window.onload = () => {
 
     gradient.addColorStop(0, '#fff');
     gradient.addColorStop(1, 'red');
-
-
-
     ctx.fillStyle = gradient
     ctx.arc(centerX, centerY / 1.2, 80, 0, 2 * Math.PI, false)
 
     ctx.fill()
     ctx.stroke()
     ctx.closePath()
-
-
 }
