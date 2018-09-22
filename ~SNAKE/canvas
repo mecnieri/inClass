@@ -1,0 +1,22 @@
+The fillStyle property can be a CSS color, a gradient, or a pattern. The default fillStyle is black.
+ctx.fillStyle = "#FF0000";
+
+The fillRect(x,y,width,height) method draws a rectangle
+
+ctx.fillRect(0,0,150,75);
+
+
+Draw a Line
+To draw a straight line on a canvas, use the following methods:
+
+moveTo(x,y) - defines the starting point of the line
+lineTo(x,y) - defines the ending point of the line
+ctx.moveTo(0,0);
+ctx.lineTo(200,100);
+ctx.stroke();
+
+Draw a Circle
+
+ctx.beginPath();
+ctx.arc(95,50,40,0,2*Math.PI);
+ctx.stroke();

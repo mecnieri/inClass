@@ -65,7 +65,7 @@ window.onload = () => {
             if (event.key === 'ArrowDown') {
                 if (ball.y + ball.radius < height) {
                     ball.y += ball.dy;
-                 }
+                }
             }
             else if (event.key === 'ArrowLeft') {
                 if (ball.x - ball.radius > 0) ball.x -= ball.dx;
@@ -82,4 +82,8 @@ window.onload = () => {
         })
     }
     animate()
+
+    console.log(window.requestAnimationFrame());
+
+
 }
