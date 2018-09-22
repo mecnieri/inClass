@@ -56,20 +56,16 @@ window.onload = () => {
             this.draw();
         }
     }
-
-
-    let ball = new Ball(100, 200, 3, 3, 30)
-    ball.update()
+    let ball = new Ball(50, 200, 10, 10, 30)
 
     function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
-        ball.update();
+        ball.draw();
         addEventListener('keydown', (event) => {
             ctx.clearRect(0, 0, canvas.width, canvas.height)
-            if (event.key == 'ArrowDown') {
+            if (event.key === 'ArrowDown') {
                 if (ball.y + ball.radius < height) {
                     ball.y += ball.dy;
-                }
+                 }
             }
             else if (event.key === 'ArrowLeft') {
                 if (ball.x - ball.radius > 0) ball.x -= ball.dx;
