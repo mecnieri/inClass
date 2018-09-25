@@ -1,7 +1,6 @@
 window.onload = () => {
     let canvas = document.querySelector('canvas')
     let ctx = canvas.getContext('2d');
-
     // generateImage();
 
     // function generateImage() {
