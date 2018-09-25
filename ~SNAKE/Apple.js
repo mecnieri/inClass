@@ -7,13 +7,14 @@ class Apple {
         this.color = "red"
         this.startAngle = 0;
         this.endAngle = Math.PI * 2;
+        this.coordinates = []
     }
     draw() {
-        for (let i = 0; i < this.quantity; i++) {
+        for (let i = 0; i < quantity; i++) {
             ctx.beginPath();
             ctx.fillStyle = this.color;
             ctx.arc(this.x * 20 + 10, this.y * 20 + 10, this.radius, this.startAngle, this.endAngle);
             ctx.fill()
         }
     }
-}
+} 
