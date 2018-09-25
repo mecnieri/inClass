@@ -1,9 +1,9 @@
 
 class Apple {
     constructor() {
-        this.x = Math.floor(Math.random() * 10)
-        this.y = Math.floor(Math.random() * 10)
-        this.radius = (gs - 2) / 2;
+        this.x = Math.floor(Math.random() * 20)
+        this.y = Math.floor(Math.random() * 20)
+        this.radius = (gs - 8) / 2;
         this.color = "red"
         this.startAngle = 0;
         this.endAngle = Math.PI * 2;

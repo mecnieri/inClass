@@ -3,10 +3,12 @@ class Snake {
         this.px = 4;
         this.py = 4;
         this.trail = [];
-        this.trail = [];
-        this.tail = 1;
+        this.startingTail = 24;
+        this.tail = this.startingTail;
 
     }
+
+
     move() {
         this.trail.push({ x: this.px, y: this.py });
         while (this.trail.length > this.tail) {

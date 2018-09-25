@@ -5,7 +5,7 @@ window.onload = function () {
     document.addEventListener("keydown", keyPush);
     my = setInterval(game, 1000 / 5);
     apple = []
-    quantity = 2
+    quantity = 50
     for (let i = 0; i < quantity; i++) {
         apple.push(new Apple())
     }
@@ -41,10 +41,13 @@ function game() {
         snake.dead()
     }
 
+
     ctx.fillStyle = "lime";
     for (let i = 0; i < snake.trail.length; i++) {
         ctx.fillRect(snake.trail[i].x * gs, snake.trail[i].y * gs, gs - 2, gs - 2);
-        if (snake.tail > 3) {
+
+        
+        if (!((snake.px == snake.trail[snake.trail.length - 1].x) && (snake.py == snake.trail[snake.trail.length - 1].y))) {
             if (snake.trail[i].x == snake.px && snake.trail[i].y == snake.py) {
                 snake.dead()
             }
@@ -53,6 +56,7 @@ function game() {
 
 
     snake.move()
+
 
     //#region eating
 
