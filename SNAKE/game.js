@@ -23,8 +23,12 @@ let features = {
     highScore: 0,
 }
 newGame.addEventListener('click', function () {
-
-    // console.log(features);
+    features = {
+        applquant: quantityInp.value,
+        spd: speed.value,
+        snkLeng: snakelen.value,
+        highScore: 0,
+    }
     if (storage.snake !== undefined) {
         features.highScore = myJSON.highScore;
     }
@@ -34,7 +38,6 @@ newGame.addEventListener('click', function () {
     xv = yv = 0;  // direction and velocity 
     snake = new Snake()
 
-    console.log(features);
     storage.setItem("snake", JSON.stringify(features))
 
     window.onload()
@@ -50,6 +53,7 @@ let snake = new Snake()
 
 
 function game() {
+
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, canv.width, canv.height);
 
