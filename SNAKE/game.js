@@ -5,7 +5,7 @@ window.onload = function () {
     document.addEventListener("keydown", keyPush);
     apple = []
     storage = window.localStorage;
-    if (storage.snake !== null) {
+    if (storage.snake !== undefined) {
         myJSON = JSON.parse(storage.getItem("snake"));
         quantityInp.value = myJSON.applquant;
         speed.value = myJSON.spd
@@ -16,16 +16,16 @@ window.onload = function () {
         apple.push(new Apple())
     }
 }
-
+let features = {
+    applquant: quantityInp.value,
+    spd: speed.value,
+    snkLeng: snakelen.value,
+    highScore: 0,
+}
 newGame.addEventListener('click', function () {
 
-    let features = {
-        applquant: quantityInp.value,
-        spd: speed.value,
-        snkLeng: snakelen.value,
-        highScore: 0,
-    }
-    if (storage.snake !== null) {
+    // console.log(features);
+    if (storage.snake !== undefined) {
         features.highScore = myJSON.highScore;
     }
     gs = 20;     // ზომა 
@@ -34,9 +34,9 @@ newGame.addEventListener('click', function () {
     xv = yv = 0;  // direction and velocity 
     snake = new Snake()
 
-    if (storage.snake !== null) {
-        storage.setItem("snake", JSON.stringify(features))
-    }
+    console.log(features);
+    storage.setItem("snake", JSON.stringify(features))
+
     window.onload()
 
 })
@@ -96,7 +96,7 @@ function game() {
     for (let i = 0; i < quantity; i++) {
         apple[i].draw()
     }
-    record.innerHTML = "Your High Score " + (myJSON.highScore)
+    record.innerHTML = "Your High Score " + (features.highScore)
 
 }
 

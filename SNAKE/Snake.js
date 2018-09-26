@@ -1,6 +1,6 @@
 let storage = window.localStorage;
 
-if (storage.snake !== null) {
+if (storage.snake !== undefined) {
     myJSON = JSON.parse(storage.getItem("snake"));
     snakelen.value = myJSON.snkLeng
 }
