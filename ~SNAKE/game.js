@@ -25,7 +25,9 @@ newGame.addEventListener('click', function () {
         snkLeng: snakelen.value,
         highScore: 0,
     }
-    features.highScore = myJSON.highScore;
+    if (storage.snake !== "undefined") {
+        features.highScore = myJSON.highScore;
+    }
     gs = 20;     // ზომა 
     tc = 20;     // რაოდენობა 
     ax = ay = 3;  // apple x and apple y 
