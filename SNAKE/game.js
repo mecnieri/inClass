@@ -9,16 +9,18 @@ window.onload = function () {
         myJSON = JSON.parse(storage.getItem("snake"));
         quantityInp.value = myJSON.applquant;
         speed.value = myJSON.spd
+        features.highScore = myJSON.highScore;
+    } else {
+        storage.setItem("snake", JSON.stringify(features))
     }
     quantity = quantityInp.value
     my = setInterval(game, 1000 / speed.value);
     for (let i = 0; i < quantity; i++) {
         apple.push(new Apple())
     }
-    if (storage.snake !== undefined) {
-        features.highScore = myJSON.highScore;
-    }
 
+
+    console.log(1);
 }
 let features = {
     applquant: quantityInp.value,
@@ -26,23 +28,22 @@ let features = {
     snkLeng: snakelen.value,
     highScore: 0,
 }
+console.log(2);
 newGame.addEventListener('click', function () {
-    features = {
-        applquant: quantityInp.value,
-        spd: speed.value,
-        snkLeng: snakelen.value,
-        highScore: 0,
-    }
+    console.log(3);
+
     if (storage.snake !== undefined) {
         features.highScore = myJSON.highScore;
     }
+    console.log(features);
+    storage.setItem("snake", JSON.stringify(features))
+
     gs = 20;     // ზომა 
     tc = 20;     // რაოდენობა 
     ax = ay = 3;  // apple x and apple y 
     xv = yv = 0;  // direction and velocity 
     snake = new Snake()
 
-    storage.setItem("snake", JSON.stringify(features))
 
     window.onload()
 
@@ -57,10 +58,19 @@ let snake = new Snake()
 
 
 function game() {
-    if (storage.snake !== undefined) {
+    console.log(4);
+    features = {
+        applquant: quantityInp.value,
+        spd: speed.value,
+        snkLeng: snakelen.value,
+        highScore: 0,
+    }
+    if (storage.snake == undefined) {
         storage.setItem("snake", JSON.stringify(features))
     }
-
+    if (storage.snake !== undefined) {
+        features.highScore = myJSON.highScore;
+    }
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, canv.width, canv.height);
 
@@ -108,7 +118,7 @@ function game() {
         apple[i].draw()
     }
 
-    if (!myJSON) {
+    if (myJSON) {
         if (snake.tail <= myJSON.highScore) {
             record.innerHTML = "Your High Score " + (features.highScore)
         }
@@ -121,7 +131,7 @@ function game() {
     }
     else {
         record.innerHTML = "Your High Score " + (snake.tail)
-     }
+    }
 
 }
 
