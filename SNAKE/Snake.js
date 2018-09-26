@@ -36,6 +36,7 @@ class Snake {
             storage.setItem("snake", JSON.stringify(myJSON))
             console.log(this.tail);
         }
-        console.log("your score is " + snake.trail.length);
+    
+         console.log("your score is " + snake.trail.length);
     }
 }

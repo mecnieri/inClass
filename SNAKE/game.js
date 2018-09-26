@@ -15,6 +15,10 @@ window.onload = function () {
     for (let i = 0; i < quantity; i++) {
         apple.push(new Apple())
     }
+    if (storage.snake !== undefined) {
+        features.highScore = myJSON.highScore;
+    }
+
 }
 let features = {
     applquant: quantityInp.value,
@@ -53,6 +57,9 @@ let snake = new Snake()
 
 
 function game() {
+    if (storage.snake !== undefined) {
+        storage.setItem("snake", JSON.stringify(features))
+    }
 
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, canv.width, canv.height);
@@ -100,7 +107,21 @@ function game() {
     for (let i = 0; i < quantity; i++) {
         apple[i].draw()
     }
-    record.innerHTML = "Your High Score " + (features.highScore)
+
+    if (!myJSON) {
+        if (snake.tail <= myJSON.highScore) {
+            record.innerHTML = "Your High Score " + (features.highScore)
+        }
+        else {
+            myJSON.highScore = snake.tail
+            storage.setItem("snake", JSON.stringify(myJSON))
+            console.log(snake.tail);
+            record.innerHTML = "Your High Score " + (snake.tail)
+        }
+    }
+    else {
+        record.innerHTML = "Your High Score " + (snake.tail)
+     }
 
 }
 
