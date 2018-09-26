@@ -5,7 +5,7 @@ window.onload = function () {
     document.addEventListener("keydown", keyPush);
     apple = []
     storage = window.localStorage;
-    if (storage.snake !== "undefined") {
+    if (storage.snake !== null) {
         myJSON = JSON.parse(storage.getItem("snake"));
         quantityInp.value = myJSON.applquant;
         speed.value = myJSON.spd
