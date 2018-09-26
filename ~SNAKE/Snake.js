@@ -1,9 +1,12 @@
+let storage = window.localStorage;
+let jsn = JSON.parse(storage.getItem("snake"))
+
 class Snake {
     constructor() {
         this.px = 4;
         this.py = 4;
         this.trail = [];
-        this.startingTail = 24;
+        this.startingTail = jsn.snkLeng;
         this.tail = this.startingTail;
 
     }
@@ -19,9 +22,12 @@ class Snake {
         apple[k].x = Math.floor(Math.random() * tc);
         apple[k].y = Math.floor(Math.random() * tc);
         this.tail++;
+        showCurrent()
+        
     }
     dead() {
-        console.log("your score is " + this.trail.length);
         clearInterval(my);
+        showCurrent();
+        console.log("your score is " + snake.trail.length);
     }
 }

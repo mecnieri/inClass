@@ -3,13 +3,18 @@ window.onload = function () {
     canv = document.getElementById("canvas");
     ctx = canv.getContext("2d");
     document.addEventListener("keydown", keyPush);
-    my = setInterval(game, 1000 / 5);
     apple = []
-    quantity = 50
+    storage = window.localStorage;
+    if (storage.snake !== "undefined") {
+        myJSON = JSON.parse(storage.getItem("snake"))
+    }
+    quantity = myJSON.applquant
+    my = setInterval(game, 1000 / myJSON.spd);
     for (let i = 0; i < quantity; i++) {
         apple.push(new Apple())
     }
 }
+
 newGame.addEventListener('click', function () {
     window.onload()
     gs = 20;     // ზომა 
@@ -17,6 +22,11 @@ newGame.addEventListener('click', function () {
     ax = ay = 3;  // apple x and apple y 
     xv = yv = 0;  // direction and velocity 
     snake = new Snake()
+
+    if (storage.snake !== "undefined") {
+        storage.setItem("snake", JSON.stringify(features))
+    }
+
 })
 gs = 20;     // ზომა 
 tc = 20;     // რაოდენობა 
@@ -46,7 +56,7 @@ function game() {
     for (let i = 0; i < snake.trail.length; i++) {
         ctx.fillRect(snake.trail[i].x * gs, snake.trail[i].y * gs, gs - 2, gs - 2);
 
-        
+
         if (!((snake.px == snake.trail[snake.trail.length - 1].x) && (snake.py == snake.trail[snake.trail.length - 1].y))) {
             if (snake.trail[i].x == snake.px && snake.trail[i].y == snake.py) {
                 snake.dead()
@@ -74,6 +84,22 @@ function game() {
     for (let i = 0; i < quantity; i++) {
         apple[i].draw()
     }
+
 }
 
 
+function showCurrent() {
+    current.innerHTML = "Current length: " + snake.trail.length
+}
+
+
+console.log(snakelen.value);
+console.log(quantityInp.value);
+
+
+let features = {
+    applquant: quantityInp.value,
+    spd: speed.value,
+    snkLeng: snakelen.value,
+    highScore: snake.trail.length,
+}
