@@ -1,12 +1,15 @@
 let storage = window.localStorage;
-let jsn = JSON.parse(storage.getItem("snake"))
 
+if (storage.snake !== "undefined") {
+    myJSON = JSON.parse(storage.getItem("snake"));
+    snakelen.value = myJSON.snkLeng
+}
 class Snake {
     constructor() {
         this.px = 4;
         this.py = 4;
         this.trail = [];
-        this.startingTail = jsn.snkLeng;
+        this.startingTail = snakelen.value;
         this.tail = this.startingTail;
 
     }
@@ -23,11 +26,16 @@ class Snake {
         apple[k].y = Math.floor(Math.random() * tc);
         this.tail++;
         showCurrent()
-        
+
     }
     dead() {
         clearInterval(my);
         showCurrent();
+        if (this.tail > myJSON.highScore) {
+            myJSON.highScore = this.tail
+            storage.setItem("snake", JSON.stringify(myJSON))
+            console.log(this.tail);
+        }
         console.log("your score is " + snake.trail.length);
     }
 }

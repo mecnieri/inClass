@@ -6,17 +6,26 @@ window.onload = function () {
     apple = []
     storage = window.localStorage;
     if (storage.snake !== "undefined") {
-        myJSON = JSON.parse(storage.getItem("snake"))
+        myJSON = JSON.parse(storage.getItem("snake"));
+        quantityInp.value = myJSON.applquant;
+        speed.value = myJSON.spd
     }
-    quantity = myJSON.applquant
-    my = setInterval(game, 1000 / myJSON.spd);
+    quantity = quantityInp.value
+    my = setInterval(game, 1000 / speed.value);
     for (let i = 0; i < quantity; i++) {
         apple.push(new Apple())
     }
 }
 
 newGame.addEventListener('click', function () {
-    window.onload()
+
+    let features = {
+        applquant: quantityInp.value,
+        spd: speed.value,
+        snkLeng: snakelen.value,
+        highScore: 0,
+    }
+    features.highScore = myJSON.highScore;
     gs = 20;     // ზომა 
     tc = 20;     // რაოდენობა 
     ax = ay = 3;  // apple x and apple y 
@@ -26,6 +35,7 @@ newGame.addEventListener('click', function () {
     if (storage.snake !== "undefined") {
         storage.setItem("snake", JSON.stringify(features))
     }
+    window.onload()
 
 })
 gs = 20;     // ზომა 
@@ -84,22 +94,15 @@ function game() {
     for (let i = 0; i < quantity; i++) {
         apple[i].draw()
     }
+    record.innerHTML = "Your High Score " + (myJSON.highScore)
 
 }
 
 
 function showCurrent() {
-    current.innerHTML = "Current length: " + snake.trail.length
+    current.innerHTML = "Current length: " + (snake.tail)
+    return snake.tail
 }
 
 
-console.log(snakelen.value);
-console.log(quantityInp.value);
 
-
-let features = {
-    applquant: quantityInp.value,
-    spd: speed.value,
-    snkLeng: snakelen.value,
-    highScore: snake.trail.length,
-}
