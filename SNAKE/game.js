@@ -19,8 +19,8 @@ window.onload = function () {
         apple.push(new Apple())
     }
 
+    console.log(4);
 
-    console.log(1);
 }
 let features = {
     applquant: quantityInp.value,
@@ -28,15 +28,18 @@ let features = {
     snkLeng: snakelen.value,
     highScore: 0,
 }
-console.log(2);
+console.log(0);
 newGame.addEventListener('click', function () {
-    console.log(3);
-
+    features = {
+        applquant: quantityInp.value,
+        spd: speed.value,
+        snkLeng: snakelen.value,
+        highScore: 0,
+    }
     if (storage.snake !== undefined) {
         features.highScore = myJSON.highScore;
     }
     console.log(features);
-    storage.setItem("snake", JSON.stringify(features))
 
     gs = 20;     // ზომა 
     tc = 20;     // რაოდენობა 
@@ -45,8 +48,12 @@ newGame.addEventListener('click', function () {
     snake = new Snake()
 
 
+    console.log(1);
     window.onload()
+    console.log(2);
 
+    storage.setItem("snake", JSON.stringify(features))
+    console.log(3);
 })
 gs = 20;     // ზომა 
 tc = 20;     // რაოდენობა 
@@ -58,7 +65,6 @@ let snake = new Snake()
 
 
 function game() {
-    console.log(4);
     features = {
         applquant: quantityInp.value,
         spd: speed.value,
