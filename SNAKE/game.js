@@ -25,7 +25,7 @@ newGame.addEventListener('click', function () {
         snkLeng: snakelen.value,
         highScore: 0,
     }
-    if (storage.snake !== "undefined") {
+    if (storage.snake !== null) {
         features.highScore = myJSON.highScore;
     }
     gs = 20;     // ზომა 
@@ -34,7 +34,7 @@ newGame.addEventListener('click', function () {
     xv = yv = 0;  // direction and velocity 
     snake = new Snake()
 
-    if (storage.snake !== "undefined") {
+    if (storage.snake !== null) {
         storage.setItem("snake", JSON.stringify(features))
     }
     window.onload()
