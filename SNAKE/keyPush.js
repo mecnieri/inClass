@@ -3,6 +3,7 @@ function keyPush(e) {
         case 37:
             if (xv === 1 && yv === 0) {
                 snake.dead()
+                console.log("gaq");
             }
             xv = -1; yv = 0;
             break;
