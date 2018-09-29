@@ -3,7 +3,7 @@ let storage = window.localStorage;
 if (storage.snake !== undefined) {
     myJSON = JSON.parse(storage.getItem("snake"));
     snakelen.value = myJSON.snkLeng
-}
+} 
 class Snake {
     constructor() {
         this.px = 4;
@@ -31,12 +31,13 @@ class Snake {
     dead() {
         clearInterval(my);
         showCurrent();
+
         if (this.tail > myJSON.highScore) {
             myJSON.highScore = this.tail
             storage.setItem("snake", JSON.stringify(myJSON))
             console.log(this.tail);
         }
-    
-         console.log("your score is " + snake.trail.length);
+
+        console.log("your score is " + snake.trail.length);
     }
 }

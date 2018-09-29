@@ -10,8 +10,26 @@ window.onload = function () {
         quantityInp.value = myJSON.applquant;
         speed.value = myJSON.spd
     }
+    else{
+        storage.setItem("snake", JSON.stringify(features))
+        myJSON = JSON.parse(storage.getItem("snake"));
+        snakelen.value = myJSON.snkLeng
+    
+        features.highScore = myJSON.highScore
+    }
     quantity = quantityInp.value
+    if (quantityInp.value == "") {
+        quantity = 1
+    }
+    console.log(3);
+    if (snakelen.value == "") {
+        snakelen.value = 1
+    }
+    if (speed.value == "") {
+        speed.value = 5
+    }
     my = setInterval(game, 1000 / speed.value);
+
     for (let i = 0; i < quantity; i++) {
         apple.push(new Apple())
     }
@@ -21,6 +39,10 @@ let features = {
     spd: speed.value,
     snkLeng: snakelen.value,
     highScore: 0,
+}
+
+if (snakelen.value == "") {
+    snakelen.value = 1
 }
 newGame.addEventListener('click', function () {
     clearInterval(my);
@@ -40,7 +62,7 @@ newGame.addEventListener('click', function () {
     ax = ay = 3;  // apple x and apple y 
     xv = yv = 0;  // direction and velocity 
     snake = new Snake()
-
+    console.log(2);
     storage.setItem("snake", JSON.stringify(features))
 
     window.onload()
@@ -53,8 +75,7 @@ ax = ay = 3;  // apple x and apple y
 xv = yv = 0;  // direction and velocity 
 
 let snake = new Snake()
-
-
+console.log(1);
 function game() {
 
     ctx.fillStyle = "black";
@@ -75,7 +96,6 @@ function game() {
     for (let i = 0; i < snake.trail.length; i++) {
         ctx.fillRect(snake.trail[i].x * gs, snake.trail[i].y * gs, gs - 2, gs - 2);
 
-        console.log(snake.px, snake.trail[snake.trail.length - 1].x);
         if (!((snake.px == snake.trail[snake.trail.length - 1].x) && (snake.py == snake.trail[snake.trail.length - 1].y))) {
             if (snake.trail[i].x == snake.px && snake.trail[i].y == snake.py) {
                 snake.dead()
