@@ -3,7 +3,7 @@ let storage = window.localStorage;
 if (storage.snake !== undefined) {
     myJSON = JSON.parse(storage.getItem("snake"));
     snakelen.value = myJSON.snkLeng
-} 
+}
 class Snake {
     constructor() {
         this.px = 4;
@@ -29,13 +29,25 @@ class Snake {
 
     }
     dead() {
+        ctx.fillStyle = "gray";
+        ctx.fillRect(0, 0, canv.width, canv.height);
         clearInterval(my);
         showCurrent();
+        ctx.font = "30px Comic Sans MS";
+        ctx.fillStyle = "yellow";
+        ctx.textAlign = "center";
+        ctx.fillText("Your score is " + snake.trail.length, canvas.width / 2, canvas.height / 2 + 50);
 
         if (this.tail > myJSON.highScore) {
             myJSON.highScore = this.tail
             storage.setItem("snake", JSON.stringify(myJSON))
             console.log(this.tail);
+            ctx.font = "30px Comic Sans MS";
+            ctx.fillStyle = "yellow";
+            ctx.textAlign = "center";
+            ctx.fillText('Congrats!!!', canvas.width / 2, canvas.height / 2 - 100);
+            ctx.fillText('You have beaten', canvas.width / 2, canvas.height / 2 - 50);
+            ctx.fillText('your record !!!', canvas.width / 2, canvas.height / 2);
         }
 
         console.log("your score is " + snake.trail.length);
