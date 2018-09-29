@@ -10,11 +10,11 @@ window.onload = function () {
         quantityInp.value = myJSON.applquant;
         speed.value = myJSON.spd
     }
-    else{
+    else {
         storage.setItem("snake", JSON.stringify(features))
         myJSON = JSON.parse(storage.getItem("snake"));
         snakelen.value = myJSON.snkLeng
-    
+
         features.highScore = myJSON.highScore
     }
     quantity = quantityInp.value
@@ -45,30 +45,34 @@ if (snakelen.value == "") {
     snakelen.value = 1
 }
 newGame.addEventListener('click', function () {
-    clearInterval(my);
-
-    features = {
-        applquant: quantityInp.value,
-        spd: speed.value,
-        snkLeng: snakelen.value,
-        highScore: 0,
-    }
-    if (storage.snake !== undefined) {
-        features.highScore = myJSON.highScore;
-        gs = 20;     // ზომა 
-    }
-    // my = setInterval(game, 1000 / speed.value);
-    tc = 20;     // რაოდენობა 
-    ax = ay = 3;  // apple x and apple y 
-    xv = yv = 0;  // direction and velocity 
-    snake = new Snake()
-    console.log(2);
-    storage.setItem("snake", JSON.stringify(features))
-
-    window.onload()
-
+    newGa()
 })
-gs = 20;     // ზომა 
+
+function newGa() {
+        clearInterval(my);
+
+        features = {
+            applquant: quantityInp.value,
+            spd: speed.value,
+            snkLeng: snakelen.value,
+            highScore: 0,
+        }
+        if (storage.snake !== undefined) {
+            features.highScore = myJSON.highScore;
+            gs = canvas.width / 20;     // ზომა 
+        }
+        // my = setInterval(game, 1000 / speed.value);
+        tc = 20;     // რაოდენობა 
+        ax = ay = 3;  // apple x and apple y 
+        xv = yv = 0;  // direction and velocity 
+        snake = new Snake()
+        console.log(2);
+        storage.setItem("snake", JSON.stringify(features))
+
+        window.onload()
+
+    }
+gs = canvas.width / 20;     // ზომა 
 tc = 20;     // რაოდენობა 
 
 ax = ay = 3;  // apple x and apple y 
@@ -133,3 +137,20 @@ function showCurrent() {
     return snake.tail
 }
 
+big.addEventListener('click', function () {
+    canvas.width = 800;
+    canvas.height = 800;
+    newGa()
+})
+
+normal.addEventListener('click', function () {
+    canvas.width = 400;
+    canvas.height = 400;
+    newGa()
+})
+
+small.addEventListener('click', function () {
+    canvas.width = 200;
+    canvas.height = 200;
+    newGa()
+})
