@@ -154,3 +154,17 @@ small.addEventListener('click', function () {
     canvas.height = 200;
     newGa()
 })
+
+novice.addEventListener('click', function () {
+    speed.value = 3
+    newGa()
+})
+intermediate.addEventListener('click', function () {
+    speed.value = 8
+    newGa()
+})
+hard.addEventListener('click', function () {
+    speed.value = 15
+    newGa()
+})
+    

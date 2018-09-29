@@ -13,14 +13,15 @@
 <body>
 
     <canvas id="canvas" width="400" height="400" style="border:2px solid wheat"></canvas>
-    <div id="featuresId">
+    <br>
+    <br>
+    <p id="current">Current length: </p>
+    <br>
+    <p id="record">Your High Score</p>
+    <div>
         <button id="newGame">New Game</button>
-        <br>
-        <br>
-        <p id="current">Current length: </p>
-        <br>
-        <p id="record">Your High Score</p>
-        <br>
+    </div>
+    <div id="featuresId">
         <p>Apples Quantity</p><input type="text" value="5" id="quantityInp">
         <br>
         <br>
@@ -30,15 +31,26 @@
         <p>Level</p> <input type="text" value="10" id="speed">
         <br>
         <br>
-        <button id="big">Big Board</button>
+        <div class="boardSize">
+            <p>Choose board size </p>
+            <button id="big">Big Board</button>
+            <br>
+            <br>
+            <button id="normal">Normal Board</button>
+            <br>
+            <br>
+            <button id="small">Small Board</button>
+            <br>
+            <br>
+        </div>
+        <div class="level">Choose game level</div>
+        <button id="novice">Novice</button>
         <br>
         <br>
-        <button id="normal">Normal Board</button>
+        <button id="intermediate">intermediate</button>
         <br>
         <br>
-        <button id="small">Small Board</button>
-        <br>
-        <br>
+        <button id="hard">Hard</button>
     </div>
     <script src="Apple.js"></script>
     <script src="Snake.js"></script>

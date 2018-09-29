@@ -27,15 +27,15 @@ html {
 #featuresId {
     position: absolute;
     right: 100px;
-    top: 10px;   
+    top: 10px;
 }
 
 #canvas {
-    margin: 10px 200px;
-    
+    position: absolute;
+    margin: 10px 250px;
 }
 
-button{
+button {
     border-radius: 5px;
     text-align: center;
     background-color: silver;
@@ -45,7 +45,13 @@ button{
     background-color: wheat;
 }
 
-input{
+input {
     background-color: wheat;
-    
+}
+
+#newGame {
+    margin: 50px 70px;
+    padding: 20px;
+    line-height: 3px;
+    font-size: 20px;
 }
