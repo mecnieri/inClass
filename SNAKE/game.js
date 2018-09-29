@@ -1,25 +1,27 @@
 
+window.onload = function () {
+    canv = document.getElementById("canvas");
+    ctx = canv.getContext("2d");
+    document.addEventListener("keydown", keyPush);
+    apple = []
+    storage = window.localStorage;
+    if (storage.snake !== undefined) {
+        myJSON = JSON.parse(storage.getItem("snake"));
+        quantityInp.value = myJSON.applquant;
+        speed.value = myJSON.spd
+        features.highScore = myJSON.highScore;
+    } else {
+        storage.setItem("snake", JSON.stringify(features))
+    }
+    quantity = quantityInp.value
+    
+    my = setInterval(game, 1000 / speed.value);
+    for (let i = 0; i < quantity; i++) {
+        apple.push(new Apple())
+    }
 
-canv = document.getElementById("canvas");
-ctx = canv.getContext("2d");
-document.addEventListener("keydown", keyPush);
-apple = []
-storage = window.localStorage;
-if (storage.snake !== undefined) {
-    myJSON = JSON.parse(storage.getItem("snake"));
-    quantityInp.value = myJSON.applquant;
-    speed.value = myJSON.spd
-    features.highScore = myJSON.highScore;
-} else {
-    storage.setItem("snake", JSON.stringify(features))
-}
-quantity = quantityInp.value
-my = setInterval(game, 1000 / speed.value);
-for (let i = 0; i < quantity; i++) {
-    apple.push(new Apple())
 }
 
-//todo 
 
 
 let features = {
@@ -28,7 +30,6 @@ let features = {
     snkLeng: snakelen.value,
     highScore: 0,
 }
-console.log(0);  
 
 
 newGame.addEventListener('click', function () {

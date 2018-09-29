@@ -7,7 +7,6 @@ class Apple {
         this.color = "red"
         this.startAngle = 0;
         this.endAngle = Math.PI * 2;
-        this.coordinates = []
     }
     draw() {
         for (let i = 0; i < quantity; i++) {
