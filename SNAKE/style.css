@@ -1,6 +1,10 @@
 html {
     box-sizing: border-box;
     height: 100%;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    color: wheat;
+    background-color: black
 }
 
 *,
@@ -20,6 +24,28 @@ html {
 
 @media screen and (min-width:640px) {}
 
-div {
-    display: inline-block;
+#featuresId {
+    position: absolute;
+    right: 100px;
+    top: 10px;   
+}
+
+#canvas {
+    margin: 10px 200px;
+    
+}
+
+button{
+    border-radius: 5px;
+    text-align: center;
+    background-color: silver;
+    margin: 10px 4px;
+    padding: 4px 4px;
+    height: 26px;
+    background-color: wheat;
+}
+
+input{
+    background-color: wheat;
+    
 }

@@ -138,8 +138,8 @@ function showCurrent() {
 }
 
 big.addEventListener('click', function () {
-    canvas.width = 800;
-    canvas.height = 800;
+    canvas.width = 600;
+    canvas.height = 600;
     newGa()
 })
 
