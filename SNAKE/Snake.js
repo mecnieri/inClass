@@ -6,8 +6,8 @@ if (storage.snake !== undefined) {
 }
 class Snake {
     constructor() {
-        this.px = 4;
-        this.py = 4;
+        this.px = Math.floor(Math.random() * 20);
+        this.py = Math.floor(Math.random() * 20);
         this.trail = [];
         this.startingTail = snakelen.value;
         this.tail = this.startingTail;
