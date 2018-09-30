@@ -50,8 +50,7 @@ newGame.addEventListener('click', function () {
 
 function newGa() {
         clearInterval(my);
-        window.onload()
-
+        
         features = {
             applquant: quantityInp.value,
             spd: speed.value,
@@ -69,8 +68,9 @@ function newGa() {
         snake = new Snake()
         console.log(2);
         storage.setItem("snake", JSON.stringify(features))
-
-
+        
+        window.onload()
+        
     }
 gs = canvas.width / 20;     // ზომა 
 tc = 20;     // რაოდენობა 
