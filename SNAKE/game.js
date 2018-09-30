@@ -59,7 +59,7 @@ function newGa() {
         }
         if (storage.snake !== undefined) {
             features.highScore = myJSON.highScore;
-            gs = canvas.width / 20;     // ზომა 
+            gs = canvas.width / 20;     // zoom 
         }
         // my = setInterval(game, 1000 / speed.value);
         tc = 20;     // რაოდენობა 
@@ -72,8 +72,8 @@ function newGa() {
         window.onload()
         
     }
-gs = canvas.width / 20;     // ზომა 
-tc = 20;     // რაოდენობა 
+gs = canvas.width / 20;     // zoom 
+tc = 20;      
 
 ax = ay = 3;  // apple x and apple y 
 xv = yv = 0;  // direction and velocity 
