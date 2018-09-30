@@ -50,6 +50,7 @@ newGame.addEventListener('click', function () {
 
 function newGa() {
         clearInterval(my);
+        window.onload()
 
         features = {
             applquant: quantityInp.value,
@@ -69,7 +70,6 @@ function newGa() {
         console.log(2);
         storage.setItem("snake", JSON.stringify(features))
 
-        window.onload()
 
     }
 gs = canvas.width / 20;     // ზომა 

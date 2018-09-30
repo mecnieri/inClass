@@ -41,11 +41,11 @@ class Snake {
         if (this.tail > myJSON.highScore) {
             myJSON.highScore = this.tail
             storage.setItem("snake", JSON.stringify(myJSON))
-            console.log(this.tail);
+            console.log(this.tail, "dad");
             ctx.font = "30px Comic Sans MS";
             ctx.fillStyle = "yellow";
             ctx.textAlign = "center";
-            ctx.globalCompositeOperation='destination-over';
+            // ctx.globalCompositeOperation='destination-over';
 
             ctx.fillText('Congrats!!!', canvas.width / 2, canvas.height / 2 - 100);
             ctx.fillText('You have beaten', canvas.width / 2, canvas.height / 2 - 50);
