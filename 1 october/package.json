@@ -1,0 +1,24 @@
+{
+  "name": "inclass/1 october",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node script.js",
+    "run-server": "nodemon script.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "nodemonConfig": {
+    "name": "nodemon",
+    "ignore": [
+      "./node_modules/*"
+    ],
+    "delay": "2500"
+  }
+}
