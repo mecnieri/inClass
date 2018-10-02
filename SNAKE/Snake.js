@@ -20,6 +20,11 @@ class Snake {
     eat(k) {
         apples[k].x = Math.floor(Math.random() * tc); //  change "eaten" apple's coordinates 
         apples[k].y = Math.floor(Math.random() * tc);
+         for (let part of this.trail) { 
+             if (apples[k].x === part.x && apples[k].y === part.y) {   // check if new coordinates matches snakes part
+                return this.eat(k)                                     // if it matches create new coordinates 
+            }
+        }
         this.tail++;   //  snake grows
         showCurrent()
     }
