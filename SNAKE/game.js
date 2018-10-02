@@ -14,10 +14,10 @@ window.onload = function () {
     //#region  identifying quantity of apples 
 
     quantity = quantityInp.value  // let apples quantity be what user want to be 
-    if (quantityInp.value == "") {  // if user didn't input any value, let by default be one apple 
+    if (quantityInp.value == "") {  // if user didn't input any value, it would be one by default 
         quantity = 1
     }
-    apples = []  // push apples in array 
+    apples = []  // push apples in array  //! 
     for (let i = 0; i < quantity; i++) {
         apples.push(new Apple())
     }
