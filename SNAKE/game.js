@@ -1,10 +1,5 @@
 
 window.onload = function () {
-    canv = document.getElementById("canvas");
-    ctx = canv.getContext("2d");
-    document.addEventListener("keydown", keyPush);
-    apple = []
-    storage = window.localStorage;
     if (storage.snake !== undefined) {
         myJSON = JSON.parse(storage.getItem("snake"));
         quantityInp.value = myJSON.applquant;
@@ -14,24 +9,34 @@ window.onload = function () {
         storage.setItem("snake", JSON.stringify(features))
         myJSON = JSON.parse(storage.getItem("snake"));
         snakelen.value = myJSON.snkLeng
-
         features.highScore = myJSON.highScore
     }
-    quantity = quantityInp.value
-    if (quantityInp.value == "") {
+
+    //#region  identifying quantity of apples 
+
+    quantity = quantityInp.value  // let apples quantity be what user want to be 
+    if (quantityInp.value == "") {  // if user didn't input any value, let by default be one apple 
         quantity = 1
     }
+    apples = []  // push apples in array 
+    for (let i = 0; i < quantity; i++) {
+        apples.push(new Apple())
+    }
+
+    //#endregion 
+
+    //#region  let user set snake's length and game, or make it default 
+
     if (snakelen.value == "") {
         snakelen.value = 1
     }
     if (speed.value == "") {
         speed.value = 5
     }
-    my = setInterval(game, 1000 / speed.value);
 
-    for (let i = 0; i < quantity; i++) {
-        apple.push(new Apple())
-    }
+    //#endregion 
+
+    my = setInterval(game, 1000 / speed.value);
 }
 let features = {
     applquant: quantityInp.value,
@@ -44,7 +49,7 @@ if (snakelen.value == "") {
     snakelen.value = 1
 }
 
-
+let snake = new Snake()
 
 function newGa() {
     clearInterval(my);
@@ -55,47 +60,50 @@ function newGa() {
         snkLeng: snakelen.value,
         highScore: 0,
     }
+
     if (storage.snake !== undefined) {
         features.highScore = myJSON.highScore;
-        gs = canvas.width / 20;     // zoom 
+        gs = canvas.width / 20;     
     }
-    tc = 20;     // რაოდენობა 
-    ax = ay = 3;  // apple x and apple y 
     xv = yv = 0;  // direction and velocity 
     snake = new Snake()
-    console.log(2);
     storage.setItem("snake", JSON.stringify(features))
 
     window.onload()
 
 }
-gs = canvas.width / 20;     // zoom 
-tc = 20;
-
-ax = ay = 3;  // apple x and apple y 
-xv = yv = 0;  // direction and velocity 
-
-let snake = new Snake()
 
 function game() {
 
     //#region  clearing and drawing new background
 
     ctx.fillStyle = "black";
-    ctx.fillRect(0, 0, canv.width, canv.height);
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     //#endregion 
 
     snake.move()
 
-    //#region  change direction and speed of snake head 
+    //#region  change direction of snake's head 
 
     snake.px += xv;
     snake.py += yv;
 
     //#endregion 
 
-    //#region  snake deads, if snake touchs the margin 
+    //#region  eating
+
+    for (let j = 0; j < snake.trail.length; j++) {
+        for (let k = 0; k < quantity; k++) {
+            if (snake.trail[j].x == apples[k].x && snake.trail[j].y == apples[k].y) {
+                snake.eat(k)
+            }
+        }
+    }
+
+    //#endregion 
+
+    //#region  snake deads, if it touchs the margins 
 
     if (snake.px < 0 ||
         snake.px > tc - 1 ||
@@ -122,23 +130,11 @@ function game() {
     }
 
     //#endregion 
-
-    //#region eating
-
-    for (let j = 0; j < snake.trail.length; j++) {
-        for (let k = 0; k < quantity; k++) {
-            if (snake.trail[j].x == apple[k].x && snake.trail[j].y == apple[k].y) {
-                snake.eat(k)
-            }
-        }
-    }
-
-    //#endregion 
-
-    //#region drawing apples
+   
+    //#region  drawing apples
 
     for (let i = 0; i < quantity; i++) {
-        apple[i].draw()
+        apples[i].draw()
     }
 
     //#endregion 
@@ -152,57 +148,43 @@ function showCurrent() {
     return snake.tail
 }
 
-//#region  make board big 
 
+
+//  addEventListeners 
+
+//#region  change board size 
 big.addEventListener('click', function () {
     canvas.width = 600;
     canvas.height = 600;
     newGa()
 })
 
-
-//#endregion 
-
-//#region  make board normal
 normal.addEventListener('click', function () {
     canvas.width = 400;
     canvas.height = 400;
     newGa()
 })
 
-//#endregion 
-
-//#region  make board small 
-
 small.addEventListener('click', function () {
     canvas.width = 200;
     canvas.height = 200;
     newGa()
 })
-
 //#endregion  
 
-
-//#region  slow down game speed
-
+//#region  change game speed
 novice.addEventListener('click', function () {
     speed.value = 3
     newGa()
 })
 
-//#endregion 
-
-//#region  intermediate game speed
 
 intermediate.addEventListener('click', function () {
     speed.value = 8
     newGa()
 })
 
-//#endregion  
 
-//#region  fast game speed
- 
 hard.addEventListener('click', function () {
     speed.value = 15
     newGa()
@@ -210,12 +192,10 @@ hard.addEventListener('click', function () {
 
 //#endregion 
 
-
-//#region  start new game 
- 
 newGame.addEventListener('click', function () {
     newGa()
 })
 
- 
-//#endregion 
+document.addEventListener("keydown", keyPush);
+
+

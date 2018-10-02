@@ -1,6 +1,6 @@
 class Apple {
     constructor() {
-        this.x = Math.floor(Math.random() * 20)
+        this.x = Math.floor(Math.random() * 20) // create apple randomly 
         this.y = Math.floor(Math.random() * 20)
         this.radius = (gs - gs*0.4) / 2;
         this.color = "red"
@@ -13,4 +13,4 @@ class Apple {
             ctx.arc(this.x * gs + gs/2, this.y * gs + gs/2, this.radius, this.startAngle, this.endAngle);
             ctx.fill()
     }
-} 
+}

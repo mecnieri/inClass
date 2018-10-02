@@ -1,4 +1,3 @@
-let storage = window.localStorage;
 
 if (storage.snake !== undefined) {
     myJSON = JSON.parse(storage.getItem("snake"));
@@ -6,33 +5,30 @@ if (storage.snake !== undefined) {
 }
 class Snake {
     constructor() {
-        this.px = Math.floor(Math.random() * 20);
+        this.px = Math.floor(Math.random() * 20); // create snake's head randomly 
         this.py = Math.floor(Math.random() * 20);
         this.trail = [];
-        this.startingTail = snakelen.value;
-        this.tail = this.startingTail;
-
+        this.startingTail = snakelen.value; // user chooses snake's starting length
+        this.tail = this.startingTail;  // tail is snake's true length, so it's assigned to user's choice 
     }
-
-
     move() {
-        this.trail.push({ x: this.px, y: this.py });
-        while (this.trail.length > this.tail) {
-            this.trail.shift();
+        this.trail.push({ x: this.px, y: this.py }); // push new parts in snake's "body". Snake's head coordinates determine new part's coordinates 
+        while (this.trail.length > this.tail) {  // if length of snake's body, is longer than it's true length, then cut redundant part
+            this.trail.shift(); // cut last part of snake (first in array)
         }
     }
     eat(k) {
-        apple[k].x = Math.floor(Math.random() * tc);
-        apple[k].y = Math.floor(Math.random() * tc);
-        this.tail++;
+        apples[k].x = Math.floor(Math.random() * tc); //  change "eaten" apple's coordinates 
+        apples[k].y = Math.floor(Math.random() * tc);
+        this.tail++;   //  snake grows
         showCurrent()
-
     }
     dead() {
         ctx.fillStyle = "gray";
-        ctx.fillRect(0, 0, canv.width, canv.height);
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
         clearInterval(my);
         showCurrent();
+
         ctx.font = "30px Comic Sans MS";
         ctx.fillStyle = "yellow";
         ctx.textAlign = "center";
@@ -41,7 +37,6 @@ class Snake {
         if (this.tail > myJSON.highScore) {
             myJSON.highScore = this.tail
             storage.setItem("snake", JSON.stringify(myJSON))
-            console.log(this.tail, "dad");
             ctx.font = "30px Comic Sans MS";
             ctx.fillStyle = "yellow";
             ctx.textAlign = "center";
@@ -49,7 +44,5 @@ class Snake {
             ctx.fillText('You have beaten', canvas.width / 2, canvas.height / 2 - 50);
             ctx.fillText('your record !!!', canvas.width / 2, canvas.height / 2);
         }
-
-        console.log("your score is " + snake.trail.length);
     }
 }
