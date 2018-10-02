@@ -1,4 +1,3 @@
-
 window.onload = function () {
     if (storage.snake !== undefined) {
         myJSON = JSON.parse(storage.getItem("snake"));
