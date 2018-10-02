@@ -45,8 +45,6 @@ class Snake {
             ctx.font = "30px Comic Sans MS";
             ctx.fillStyle = "yellow";
             ctx.textAlign = "center";
-            // ctx.globalCompositeOperation='destination-over';
-
             ctx.fillText('Congrats!!!', canvas.width / 2, canvas.height / 2 - 100);
             ctx.fillText('You have beaten', canvas.width / 2, canvas.height / 2 - 50);
             ctx.fillText('your record !!!', canvas.width / 2, canvas.height / 2);

@@ -1,4 +1,3 @@
-
 class Apple {
     constructor() {
         this.x = Math.floor(Math.random() * 20)
@@ -9,11 +8,9 @@ class Apple {
         this.endAngle = Math.PI * 2;
     }
     draw() {
-        for (let i = 0; i < quantity; i++) {
             ctx.beginPath();
             ctx.fillStyle = this.color;
             ctx.arc(this.x * gs + gs/2, this.y * gs + gs/2, this.radius, this.startAngle, this.endAngle);
             ctx.fill()
-        }
     }
 } 

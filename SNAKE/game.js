@@ -21,7 +21,6 @@ window.onload = function () {
     if (quantityInp.value == "") {
         quantity = 1
     }
-    console.log(3);
     if (snakelen.value == "") {
         snakelen.value = 1
     }
@@ -44,49 +43,59 @@ let features = {
 if (snakelen.value == "") {
     snakelen.value = 1
 }
-newGame.addEventListener('click', function () {
-    newGa()
-})
+
+
 
 function newGa() {
-        clearInterval(my);
-        
-        features = {
-            applquant: quantityInp.value,
-            spd: speed.value,
-            snkLeng: snakelen.value,
-            highScore: 0,
-        }
-        if (storage.snake !== undefined) {
-            features.highScore = myJSON.highScore;
-            gs = canvas.width / 20;     // zoom 
-        }
-        // my = setInterval(game, 1000 / speed.value);
-        tc = 20;     // რაოდენობა 
-        ax = ay = 3;  // apple x and apple y 
-        xv = yv = 0;  // direction and velocity 
-        snake = new Snake()
-        console.log(2);
-        storage.setItem("snake", JSON.stringify(features))
-        
-        window.onload()
-        
+    clearInterval(my);
+
+    features = {
+        applquant: quantityInp.value,
+        spd: speed.value,
+        snkLeng: snakelen.value,
+        highScore: 0,
     }
+    if (storage.snake !== undefined) {
+        features.highScore = myJSON.highScore;
+        gs = canvas.width / 20;     // zoom 
+    }
+    tc = 20;     // რაოდენობა 
+    ax = ay = 3;  // apple x and apple y 
+    xv = yv = 0;  // direction and velocity 
+    snake = new Snake()
+    console.log(2);
+    storage.setItem("snake", JSON.stringify(features))
+
+    window.onload()
+
+}
 gs = canvas.width / 20;     // zoom 
-tc = 20;      
+tc = 20;
 
 ax = ay = 3;  // apple x and apple y 
 xv = yv = 0;  // direction and velocity 
 
 let snake = new Snake()
-console.log(1);
+
 function game() {
+
+    //#region  clearing and drawing new background
 
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, canv.width, canv.height);
 
+    //#endregion 
+
+    snake.move()
+
+    //#region  change direction and speed of snake head 
+
     snake.px += xv;
     snake.py += yv;
+
+    //#endregion 
+
+    //#region  snake deads, if snake touchs the margin 
 
     if (snake.px < 0 ||
         snake.px > tc - 1 ||
@@ -95,27 +104,29 @@ function game() {
         snake.dead()
     }
 
+    //#endregion 
+
+    //#region  draw whole snake and check if it touched itself
 
     ctx.fillStyle = "lime";
     for (let i = 0; i < snake.trail.length; i++) {
-        ctx.fillRect(snake.trail[i].x * gs, snake.trail[i].y * gs, gs - 2, gs - 2);
 
-        if (!((snake.px == snake.trail[snake.trail.length - 1].x) && (snake.py == snake.trail[snake.trail.length - 1].y))) {
-            if (snake.trail[i].x == snake.px && snake.trail[i].y == snake.py) {
+        ctx.fillRect(snake.trail[i].x * gs, snake.trail[i].y * gs, gs - 2, gs - 2); // draw each part of snake
+
+        // check if snake touchs itself, if only it is already "born"
+        if (!((snake.px == snake.trail[snake.trail.length - 1].x) && (snake.py == snake.trail[snake.trail.length - 1].y))) { // is it "born" ?
+            if (snake.trail[i].x == snake.px && snake.trail[i].y == snake.py) {  // did it touch itself ? 
                 snake.dead()
             }
         }
     }
 
-
-    snake.move()
-
+    //#endregion 
 
     //#region eating
 
     for (let j = 0; j < snake.trail.length; j++) {
         for (let k = 0; k < quantity; k++) {
-
             if (snake.trail[j].x == apple[k].x && snake.trail[j].y == apple[k].y) {
                 snake.eat(k)
             }
@@ -124,11 +135,15 @@ function game() {
 
     //#endregion 
 
+    //#region drawing apples
+
     for (let i = 0; i < quantity; i++) {
         apple[i].draw()
     }
-    record.innerHTML = "Your High Score " + (features.highScore)
 
+    //#endregion 
+
+    record.innerHTML = "Your High Score " + (features.highScore) // showing high score
 }
 
 
@@ -137,17 +152,27 @@ function showCurrent() {
     return snake.tail
 }
 
+//#region  make board big 
+
 big.addEventListener('click', function () {
     canvas.width = 600;
     canvas.height = 600;
     newGa()
 })
 
+
+//#endregion 
+
+//#region  make board normal
 normal.addEventListener('click', function () {
     canvas.width = 400;
     canvas.height = 400;
     newGa()
 })
+
+//#endregion 
+
+//#region  make board small 
 
 small.addEventListener('click', function () {
     canvas.width = 200;
@@ -155,16 +180,42 @@ small.addEventListener('click', function () {
     newGa()
 })
 
+//#endregion  
+
+
+//#region  slow down game speed
+
 novice.addEventListener('click', function () {
     speed.value = 3
     newGa()
 })
+
+//#endregion 
+
+//#region  intermediate game speed
+
 intermediate.addEventListener('click', function () {
     speed.value = 8
     newGa()
 })
+
+//#endregion  
+
+//#region  fast game speed
+ 
 hard.addEventListener('click', function () {
     speed.value = 15
     newGa()
 })
-    
+
+//#endregion 
+
+
+//#region  start new game 
+ 
+newGame.addEventListener('click', function () {
+    newGa()
+})
+
+ 
+//#endregion 
