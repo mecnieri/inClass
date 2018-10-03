@@ -47,6 +47,16 @@ let features = {
 if (snakelen.value == "") {
     snakelen.value = 1
 }
+if (snakelen.value > 100) {
+    snakelen.value = 100
+}
+if (quantityInp.value > 100) {
+    quantityInp.value = 100
+}
+if (speed.value > 20) {
+    speed.value = 20
+}
+
 
 let snake = new Snake()
 
@@ -138,7 +148,7 @@ function game() {
 
     //#endregion 
     if (naxva) {
-        if (snake.tail > 200) {
+        if (snake.tail > 199) {
             naxva = false;
             clearInterval(my);
             xv = yv = 0
