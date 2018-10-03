@@ -138,8 +138,8 @@ function game() {
 
     //#endregion 
     if (naxva) {
-        if (snake.tail > 3) {
-            naxva = false;
+        if (snake.tail > 5) {
+            naxva = false
             clearInterval(my);
             xv = yv = 0
             video.style.display = "block"
@@ -204,7 +204,6 @@ newGame.addEventListener('click', function () {
 })
 
 document.addEventListener("keydown", keyPush);
-
 
 skip.addEventListener('click', function () {
     my = setInterval(game, 1000 / speed.value);
