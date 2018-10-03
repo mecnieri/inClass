@@ -138,7 +138,7 @@ function game() {
 
     //#endregion 
     if (naxva) {
-        if (snake.tail > 3) {
+        if (snake.tail > 200) {
             naxva = false;
             clearInterval(my);
             xv = yv = 0
