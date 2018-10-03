@@ -47,15 +47,7 @@ let features = {
 if (snakelen.value == "") {
     snakelen.value = 1
 }
-if (snakelen.value > 100) {
-    snakelen.value = 100
-}
-if (quantityInp.value > 100) {
-    quantityInp.value = 100
-}
-if (speed.value > 20) {
-    speed.value = 20
-}
+
 
 
 let snake = new Snake()
@@ -84,6 +76,15 @@ function newGa() {
 
 function game() {
 
+    if (snakelen.value > 100) {
+        snakelen.value = 100
+    }
+    if (quantityInp.value > 100) {
+        quantityInp.value = 100
+    }
+    if (speed.value > 20) {
+        speed.value = 20
+    }
     //#region  clearing and drawing new background
 
     ctx.fillStyle = "black";
