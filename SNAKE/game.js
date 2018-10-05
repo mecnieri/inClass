@@ -17,7 +17,7 @@ window.onload = function () {
     if (quantityInp.value == "") {  // if user didn't input any value, it would be one by default 
         quantity = 1
     }
-    apples = []  // push apples in array  //! 
+    apples = []  // push apples in array  
     for (let i = 0; i < quantity; i++) {
         apples.push(new Apple())
     }
@@ -148,15 +148,7 @@ function game() {
     }
 
     //#endregion 
-    if (naxva) {
-        if (snake.tail > 199) {
-            naxva = false;
-            clearInterval(my);
-            xv = yv = 0
-            video.style.display = "block"
-            skip.style.display = "block"
-        }
-    }
+ 
     record.innerHTML = "Your High Score " + (features.highScore) // showing high score
 }
 
@@ -215,9 +207,3 @@ newGame.addEventListener('click', function () {
 })
 
 document.addEventListener("keydown", keyPush);
-
-
-skip.addEventListener('click', function () {
-    my = setInterval(game, 1000 / speed.value);
-    video.style.display = "none"
-})
