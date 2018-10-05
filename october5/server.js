@@ -24,5 +24,18 @@ app.get('/products', (req, res) => {
 })
 
 
+app.get('/products/:productId', (req, res)=>{
+    const id = req.params.productId;
+    const Product = products[id];
+    const response = `
+    <a href="http://localhost:3000/products/"> Go back </a>
+    <h1>${Product.name} </h1>
+    <hr>
+    <h2>Price $${Product.price}, Id - ${Product.id} </h2>
+    `;
+
+    res.send(response)
+})
+
 
 app.listen(3000)
