@@ -1,11 +1,17 @@
 {
   "name": "october5",
   "version": "1.0.0",
-  "description": "",
-  "main": "jquery.min.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "nodemon": "^1.18.4"
+  },
+  "devDependencies": {},
+  "description": ""
 }
