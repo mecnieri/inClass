@@ -11,20 +11,20 @@ window.onload = function () {
         features.highScore = myJSON.highScore
     }
 
-    //#region  identifying quantity of apples 
+    //#region  Identifying quantity of apples 
 
-    quantity = quantityInp.value  // let apples quantity be what user want to be 
-    if (quantityInp.value == "") {  // if user didn't input any value, it would be one by default 
+    quantity = quantityInp.value  // Apples variable defines quantity inputed by the user
+    if (quantityInp.value == "") {  // If user didn't input any value, it would be 1 by default 
         quantity = 1
     }
-    apples = []  // push apples in array  
+    apples = []  // Pushing apples in array  //! 
     for (let i = 0; i < quantity; i++) {
         apples.push(new Apple())
     }
 
     //#endregion 
 
-    //#region  let user set snake's length and game, or make it default 
+    //#region  Let the user choose snake's length and moving speed, or make it by default 
 
     if (snakelen.value == "") {
         snakelen.value = 1
@@ -48,8 +48,6 @@ if (snakelen.value == "") {
     snakelen.value = 1
 }
 
-
-
 let snake = new Snake()
 
 function newGa() {
@@ -64,9 +62,9 @@ function newGa() {
 
     if (storage.snake !== undefined) {
         features.highScore = myJSON.highScore;
-        gs = canvas.width / 20;
+        gs = canvas.width / 20;     
     }
-    xv = yv = 0;  // direction and velocity 
+    xv = yv = 0;  // Direction and velocity 
     snake = new Snake()
     storage.setItem("snake", JSON.stringify(features))
 
@@ -76,16 +74,7 @@ function newGa() {
 
 function game() {
 
-    if (snakelen.value > 100) {
-        snakelen.value = 100
-    }
-    if (quantityInp.value > 100) {
-        quantityInp.value = 100
-    }
-    if (speed.value > 20) {
-        speed.value = 20
-    }
-    //#region  clearing and drawing new background
+    //#region  Clearing and drawing new background
 
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -94,14 +83,14 @@ function game() {
 
     snake.move()
 
-    //#region  change direction of snake's head 
+    //#region  Changing direction of snake's head 
 
     snake.px += xv;
     snake.py += yv;
 
     //#endregion 
 
-    //#region  eating
+    //#region  Eating
 
     for (let j = 0; j < snake.trail.length; j++) {
         for (let k = 0; k < quantity; k++) {
@@ -113,7 +102,7 @@ function game() {
 
     //#endregion 
 
-    //#region  snake deads, if it touchs the margins 
+    //#region  The death of a snake, (happens when it touches the margins)
 
     if (snake.px < 0 ||
         snake.px > tc - 1 ||
@@ -124,7 +113,7 @@ function game() {
 
     //#endregion 
 
-    //#region  draw whole snake and check if it touched itself
+    //#region  Drawing whole snake body and checking a collision
 
     ctx.fillStyle = "lime";
     for (let i = 0; i < snake.trail.length; i++) {
@@ -140,16 +129,16 @@ function game() {
     }
 
     //#endregion 
-
-    //#region  drawing apples
+   
+    //#region  Drawing apples
 
     for (let i = 0; i < quantity; i++) {
         apples[i].draw()
     }
 
     //#endregion 
- 
-    record.innerHTML = "Your High Score " + (features.highScore) // showing high score
+
+    record.innerHTML = "Your High Score " + (features.highScore) // Showing highest score
 }
 
 
@@ -162,7 +151,7 @@ function showCurrent() {
 
 //  addEventListeners 
 
-//#region  change board size 
+//#region  Changing board size 
 big.addEventListener('click', function () {
     canvas.width = 600;
     canvas.height = 600;
@@ -182,7 +171,7 @@ small.addEventListener('click', function () {
 })
 //#endregion  
 
-//#region  change game speed
+//#region  Changing game speed
 novice.addEventListener('click', function () {
     speed.value = 3
     newGa()
@@ -207,3 +196,5 @@ newGame.addEventListener('click', function () {
 })
 
 document.addEventListener("keydown", keyPush);
+
+
