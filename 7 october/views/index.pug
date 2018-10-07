@@ -1,1 +1,11 @@
-doctype
+doctype html
+html
+    head
+        meta(charset="urf-8")
+        title="Pug page title"
+    body
+        h1 h1 title1
+        hr 
+        ul#menu.myClass
+            each n in [1,2,3,4,5,6,7,8]
+                li=n
