@@ -54,13 +54,13 @@ let timeLog = function (req, res, next) {
 }
 
 
-app.use(express.static(path.join(__dirname, '/public',)))
 app.use(myMid);
 app.use(timeLog); 
+app.use(express.static(path.join(__dirname, '/public',)))
 
 app.get('/', (req, res) => {
     console.log(`Index.html - ${req.requestTime}`);
-    res.sendfile(`Index.html`, { root: path.join(__dirname, '/public',) })
+    res.sendfile(`Index.html`)
 })
 
 app.listen(PORT, () => {
