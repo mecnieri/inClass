@@ -2,10 +2,28 @@ doctype html
 html
     head
         meta(charset="urf-8")
-        title="Pug page title"
+        title= title
     body
-        h1 h1 title1
+        h1(style={color : 'red', background : "green"})= message
         hr 
+        a(href="#"): img
         ul#menu.myClass
-            each n in [1,2,3,4,5,6,7,8]
+            each n in numbers
                 li=n
+        p.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Voluptatum quae corrupti pariatur velit repudiandae voluptates 
+            dicta vero reicie equi id iste voluptas ratione, laudantium 
+            eius totam nobis. Tempore, unde saepe.
+        script.
+            let num = 8;
+            if(num< 10) 
+                console.log(`${num} < 10`)
+            else
+                console.log(`${num} > 10`)
+
+        - let count = 0;    
+        
+        ul 
+            while count < 13
+                li= count++
