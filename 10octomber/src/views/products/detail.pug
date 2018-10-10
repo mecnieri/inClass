@@ -7,6 +7,5 @@ include ../includes/header.pug
 body    
     h1= title
     hr
-    div.wrapper
-        each item in products 
-            +product(item)
+    h1= product.title
+    +product(product)
