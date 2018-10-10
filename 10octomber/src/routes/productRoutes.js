@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 router.get('/:id(\\d)', (req, res) => {
     let id = req.params.id
     res.send(id)
-    res.render('products/detail', { title: `product - ${id}`, products })
+    res.render('products/detail', { title: `product - ${id}`, products: products[id] })
 })
 
 router.get('/add', (req, res) => {
