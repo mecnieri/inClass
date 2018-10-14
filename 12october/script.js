@@ -15,7 +15,8 @@ app.get('/', (req, res) => {
     res.cookie("forever", "Forever Value", { maxAge: 10000 })
     // res.cookie('color', `${input.value}`)
     res.cookie('signed', "ragac texti", { signed: true })
-
+    console.log(req.query.favcolor);
+    console.log(res.backgroundColor)
     res.sendFile(__dirname + '/index.html');
 });
 
