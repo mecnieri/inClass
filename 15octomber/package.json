@@ -15,5 +15,5 @@
   "devDependencies": {
     "cookie-parser": "^1.4.3",
     "express-session": "^1.15.6"
-  }
+  } 
 }
