@@ -21,8 +21,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/cookies', (req, res) => {
-    res.write(` <h1> Usermane - ${req.cookies.username}  </h1>    `);
-    res.write(` <h1> forever - ${req.cookies.forever} </h1>`)
+    res.write(`<h1> Usermane - ${req.cookies.username}  </h1>`);
+    res.write(`<h1> forever - ${req.cookies.forever} </h1>`)
     res.write(`<h1> Cart - ${req.cookies.cart.item.join(' ')}</h1>`)
     res.write(`<h1> Signed - ${req.signedCookies['signed']}</h1>`)
     res.end()
@@ -31,7 +31,7 @@ app.get('/cookies', (req, res) => {
 app.get('/clear', (req, res) => {
     res.clearCookie('username')
     res.clearCookie('cart')
-    res.send("cookies have neen removed")
+    res.send("cookies have been removed")
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
