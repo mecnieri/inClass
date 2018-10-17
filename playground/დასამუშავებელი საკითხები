@@ -1,4 +1,7 @@
 var let const
+caret ^ 
+tilda ~
+
 // for in 
 // for of 
 parseInt
