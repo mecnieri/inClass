@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form action="" method="POST" enctype="multipart/form-data"></form>
+    <form action="" method="POST" enctype="multipart/form-data">
     <div>
         <label for="name">Name</label>
         <input type="text" name="username" placeholder="username" id="name">
@@ -17,13 +17,14 @@
     <br>
     <div>
         <label>
-            <input type="file" name="image[]" accept="image/jpeg, image/png" multiple>Upload image
+            <input type="file" name="image" accept="image/jpeg, image/png" >Upload image
         </label>
     </div>
     <br>
     <div>
         <button type="submit">Register</button>
     </div>
+</form>
 </body>
 
 </html>
