@@ -2,9 +2,10 @@ const express = require('express')
 const path = require('path')
 const multer = require('multer')
 const app = express()
+const
 
-const cookieParser = require('cookie-parser')
-const session = require('express-session')
+// const cookieParser = require('cookie-parser')
+// const session = require('express-session')
 const PORT = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, '/public')));
@@ -14,7 +15,7 @@ const multerConfig = multer({
     dest: 'public/uploads',
 })
 
-app.use(cookieParser())
+// app.use(cookieParser())
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/public', 'upload.html'))
 })
