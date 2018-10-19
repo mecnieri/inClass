@@ -28,6 +28,8 @@ app.get('/products', (req, res) => {
 
 app.get('/product/id/:id', (req, res) => {
     res.send(products[req.params.id])
+    console.log(products);
+
 })
 
 app.get('/product', (req, res) => {
@@ -49,8 +51,10 @@ app.get('/products/add/:id/:name/:price', (req, res) => {
 })
 
 app.delete('/products/delete/:id', (req, res) => {
-    let index = products.findIndex((e) => e == req.params.id)
+    let index = products.findIndex((e) => e.id == req.params.id)
     products.splice(index, 1);
         console.log(products);
+        res.json({ message: "product deleted", products })
+
 })
-app.listen(3000)
+app.listen(2999)
