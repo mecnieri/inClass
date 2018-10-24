@@ -1,0 +1,30 @@
+DOCTYPE 
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Document
+    body
+        h1 Home
+        form(action = "/us", method = "post")
+            p
+                input(type = "text", name = "product_name", placeholder = "Product Name", id="inputi", required)
+            p
+                button(type="submit") Search
+        p=firstName
+        p=lastName 
+        p=number
+        p=fathersName
+        p=birthYear
+        a(href="/add")
+            button add
+        a(href="/us")
+            button users
+        a(href="/delete")
+            button delete
+        form(action = "/update", method = "post")
+            p
+                input(type = "text", name = "pp", placeholder = "Product Name", id="inputi", required)
+            p
+                button(type="submit") put

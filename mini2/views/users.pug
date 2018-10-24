@@ -1,0 +1,27 @@
+html 
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Users
+    body
+        h1 Add user
+        form(action = "/add", method = "post")
+            p
+                input(type = "text", name = "firstName", placeholder = "firstName")
+            p
+                input(type = "text", name = "lastName", placeholder = "lastName")
+            p
+                input(type = "text", name = "number", placeholder = "number")
+            p
+                input(type = "text", name = "fathersName", placeholder = "fathersName")
+            p
+                input(type = "text", name = "birthYear", placeholder = "birthYear")
+            p
+                button(type="submit") Save Product
+        a(href="/")
+            button home
+        a(href="/add")
+            button add
+        a(href="/delete")
+            button delete
