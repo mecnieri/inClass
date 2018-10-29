@@ -4,6 +4,7 @@ import Item from './Item';
 import './App.css';
 
 class App extends Component {
+  itemInput = React.createRef()
 
   constructor(props) {
     super(props);
@@ -24,7 +25,16 @@ class App extends Component {
       },
     }
   }
+  handleInput = event => {
+    const text = event.target.value;
+    const currentItem = {
+      text, key: Date.now()
 
+    }
+    this.setState({
+      currentItem,
+    })
+  }
   deleteItem = key => {
     const filteredItems = this.state.items.filter(item => item.key !== key)
     this.setState({ items: filteredItems })
@@ -32,13 +42,26 @@ class App extends Component {
 
   addItem = event => {
     event.preventDefault()
+    const newValue = this.state.currentItem;
     console.log(event);
+    if (newValue.text !== ' ') {
+      const items = [...this.state.items, newValue]
+      this.setState({
+        items,
+        currentItem: { key: '', text: '' },
+      })
+    }
   }
 
   render() {
     return (
       <div className="App">
-        <List addItem={this.addItem}/>
+        <List
+          itemInput={this.itemInput}
+          addItem={this.addItem}
+          handleInput={this.handleInput} 
+          currentItem={this.state.currentItem}
+         />
         <Item items={this.state.items} deleteItem={this.deleteItem} />
 
       </div>
