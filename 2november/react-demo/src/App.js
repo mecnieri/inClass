@@ -1,27 +1,39 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+// import {username, lastname} from './Play'
+import developer from './Play'
+import Counter from './counter'
+
+function SaySomething(props) {
+  return <p>{props.text}</p>
+}
+const styles = {color: 'red', padding: '30px', border: '2px dashed black' }
+const FooComponent = (props) => {
+  return (
+    <div style={{...styles}}>
+      <p>{props.text}</p>
+    </div>
+  )
+}
 
 class App extends Component {
+  randomText() {
+    return `Random Text = ${developer.name} and ${developer.lastname}`
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <h1>Hello world ...</h1>
+        <h2>{this.randomText()}</h2>
+        <SaySomething text="Lorem ipsum dolar sitam" />
+        <FooComponent text="Foo Lorem ipsum dolar"/>
+        <hr></hr>
+        <div style={{ background:"seagreen",...styles}}>
+          <Counter />
+        </div>
       </div>
-    );
+    )
   }
 }
 
