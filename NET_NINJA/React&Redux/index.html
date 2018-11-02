@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <script type="text/babel">
+
+        class App extends React.Component {
+            state = {
+                name : "Giorgi",
+                surname : "Abzianidze", 
+                age : 26,
+                username : "Mecnieri"
+            }
+
+            // this.state ar mushaobs chveulebriv funqciashi, sachiroa arrow funqcia 
+            // stateshi shesworebis shesatanad sjobs this.setState({}) da ara this.state.----
+            handleClick = (e)=>{
+                this.setState({
+                    name: "Bziki"
+                })
+                console.log(e.target)
+            }
+            handleHover(e){
+                console.log(e.target, e.pageX)
+            }
+            handleCopy(e){
+                console.log("you such a dick")
+            }
+            render() {
+                return (
+                    <div className="app-content">
+                        <h1> Hey, I am Mecnieri </h1>
+                        <form onSubmit={this.handleClick}> 
+                        <input type="text" />
+                            <button> Submit </button>
+                        </form>
+                    </div>
+                )
+            }
+        }
+
+
+
+
+        ReactDOM.render(<App/>, document.getElementById('app'))
+
+    </script>
+
+
+</body>
+
+</html>
