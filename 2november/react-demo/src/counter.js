@@ -17,8 +17,14 @@ class Counter extends Component {
     //     this.setState(state => ({ currentNumber : state.currentNumber - 1}))
     // }
 
-state = {currentNumber :0 , }
-on
+    state = { currentNumber: 0, }
+    onIncrement = () => {
+        this.setState(state => ({ currentNumber: state.currentNumber + 1 }))
+    }
+    onDecrement = () => {
+        this.setState(state => ({ currentNumber: state.currentNumber - 1 }))
+    }
+
     render() {
         return (
             <div>
