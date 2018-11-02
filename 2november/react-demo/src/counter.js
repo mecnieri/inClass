@@ -2,22 +2,23 @@ import React, { Component } from 'react'
 
 
 class Counter extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            currentNumber: 0,
-        }
-        this.onIncrement = this.onIncrement.bind(this)
-        this.onDecrement = this.onDecrement.bind(this)
-    }
-    onIncrement() {
-        this.setState(state => ({ currentNumber : state.currentNumber + 1}))
-    }
-    onDecrement() {
-        this.setState(state => ({ currentNumber : state.currentNumber - 1}))
-    }
+    // constructor(props) {
+    //     super(props)
+    //     this.state = {
+    //         currentNumber: 0,
+    //     }
+    //     this.onIncrement = this.onIncrement.bind(this)
+    //     this.onDecrement = this.onDecrement.bind(this)
+    // }
+    // onIncrement() {
+    //     this.setState(state => ({ currentNumber : state.currentNumber + 1}))
+    // }
+    // onDecrement() {
+    //     this.setState(state => ({ currentNumber : state.currentNumber - 1}))
+    // }
 
-
+state = {currentNumber :0 , }
+on
     render() {
         return (
             <div>
