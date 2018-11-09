@@ -1,0 +1,29 @@
+div.out {
+    border: 1px solid;
+    width: 800px;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+div.in {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    animation-name: myAnimation;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes myAnimation {
+    0% {}
+    25% {
+        transform: translate(350px);
+    }
+    35% {
+        transform: translate(350px);
+    }
+    100% {
+        transform: translate(700px);
+    }
+}
