@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Loader = (props) => (
     <div className="lds-roller">
@@ -13,4 +13,4 @@ const Loader = (props) => (
     </div>
 );
 
-export default Loader
+export default Loader;
