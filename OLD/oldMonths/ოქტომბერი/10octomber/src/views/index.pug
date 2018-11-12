@@ -1,0 +1,18 @@
+include includes/header.pug
+body
+    h1= title
+    if added
+        p(style = {'background-color': "seagreen", "padding":"15px"}) Product okay
+    ul
+        each product in productsDB
+            li= product.product_name
+    hr
+    form(action = "", method = "post")
+        p
+            input(type = "text", name = "product_name", placeholder = "Product Name", required)
+        p
+            input(type = "number", name = "product_id", placeholder = "Product ID", required)
+        p
+            input(type = "number", name = "product_price", placeholder = "Product Price", required)
+        p
+            button(type="submit") Save Product

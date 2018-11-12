@@ -1,0 +1,22 @@
+html 
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Add Car 
+    body
+        a(href="/")
+            button home page
+            p
+        h1 Add Car
+        form(action = "/addCar", method = "post")
+            p
+                input(type = "text", name = "mark", placeholder = "insert mark here...")
+            p
+                input(type = "text", name = "model", placeholder = "insert model here...")
+            p
+                input(type = "text", name = "VIN", placeholder = "VIN...")
+            p
+                a(href="/search")
+                    button(type="submit") Save Car
+            br

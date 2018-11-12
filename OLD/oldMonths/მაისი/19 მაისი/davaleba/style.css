@@ -1,0 +1,52 @@
+div.inline-block{
+    display: inline-block;
+    position: relative;
+    background-color: lightgray;
+    height: 200px;
+    width: 200px;
+}
+
+div.absolute{
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background: black;
+    right: 0;
+    bottom: 0;
+}
+
+#in2{
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background: grey;
+    left: 0;
+    bottom: 0;
+}
+
+#in3{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    background: black;
+    right: 0;
+    top: 0;
+}
+
+#in3a{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    background: black;
+    right: 0;
+    top: 0;
+}
+
+#in3b{
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background: gray;
+    left: 0;
+    top: 0;
+}

@@ -1,0 +1,40 @@
+DOCTYPE 
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Document
+    body  
+        h1 Home
+        a(href="/")
+            button home 
+        a(href="/add")
+            button Add new person here 
+        form(action = "/search", method = "post")
+            p
+                input(type = "text", name = "wanted", placeholder = "Enter name for search", id="inputi", required)
+            p
+                button(type="submit") Search   
+        p
+        form(action="/update" method="post") 
+            p=firstName
+            p=lastName 
+            p=number
+            p=fathersName
+            p=birthYear
+            br
+            br
+            button Update this person 
+        form(action="/delete" method="post") 
+            button Delete this person
+            br
+            p Cars this person owns :
+            each c in j 
+                p Mark -- #{c.mark}
+                p Model -- #{c.model}
+                p VIN -- #{c.VIN}
+                br
+            p
+        a(href="/addCar")
+            button Add new Car here 

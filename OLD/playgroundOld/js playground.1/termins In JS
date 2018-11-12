@@ -1,0 +1,80 @@
+statement  In HTML, JavaScript statements are "instruction" to be "executed" by the web browser.
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+variable ცვლადი 
+     const
+     let
+        var 
+
+    value მნიშნველობა 
+
+assignment  მნიშვნელობის მინიჭება = 
+    assignment operators 
+    += 
+    -=
+    *=
+    /=
+
+
+data type მონაცემის ტიპი 
+    string სტრიქონი                 ""                       let name = "George";
+    number რიცხვი                    1                       let age = 26;
+    Boolean                         true or false             let programmer = true;
+    Null არარსებობა (არაფერი)       null                      let bugs = null;
+    array                           []                        let knowledge = ["HTML", "CSS", "JavaScript", "AJAX", "React"]
+    object                          {}                        let results = {name:"George", age: 26, programmer:true; JavaScript:100,}
+    Symbol
+    Undefined                        Undefined                 let some; არ არის გამოცხადებული. არ აქვს მნიშნველობა მინიჭებული.  
+
+
+Symbol Type
+
+
+    typeof Undefined //Undefined
+    typeof Null //object
+    Null === Undefined
+    Null == Undefined
+    
+    
+
+    typeof      You can use the JavaScript typeof operator to find the type of a JavaScript variable
+ 
+
+
+concatenation  ორი მნიშვნელობის გაერთინება სტრინგად!!     "7" + 5 = 75 !!!!!        და არა 12
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Array მასივი    ცვლადი რომელიც ინახავს ბევრ ელემენტს, მნიშვნელობა 
+    Individual elements  ცალკეული ელემენტი, მნიშვნელობა 
+    built-in methods
+    method  ფუნქცია
+        .push()         ბოლო ელემენტის დამატება
+        .pop()          ბოლო ელემენტის წაშლა
+        .join()
+        .slice()        ელემენტების ამოჭრა,,დანაწევრება  arrayName.slice(2, 4); 
+        .splice()
+        .shift()        პირველი ელემენტის წაშლა
+        .unshift()      პირველი ელემენტის დამატება
+        .concat()
+
+property    მახასიათებელი
+    built-in property   გამზადებული მახასიათებლები 
+        .length
+
+method ფუნქციაა, ოღონდ რამეზე მიწებებული მგონი 
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+function 
+    parameter
+    argument 
+
+    arrow function
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+object 
+
+iterator method

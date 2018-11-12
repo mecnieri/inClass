@@ -1,0 +1,61 @@
+/* div {
+    height: 150px;
+}
+
+#grad1 {
+    background-image: radial-gradient(red, green, blue);
+}
+
+#grad2 {
+    background: radial-gradient(red 20%, blue 25%);
+}
+
+#grad3 {
+    background: radial-gradient(circle, red 20%, blue 25%);
+}
+
+#grad4 {
+    background: repeating-radial-gradient(red 8%, blue 35% );
+}
+
+#grad5 {
+    background: repeating-radial-gradient(circle,red 8%, blue 35% );
+}
+
+#grad6 {
+    background: repeating-radial-gradient(circle at bottom left, #333, #333 10px,
+     #eee 10px, #eee 20px );
+} */
+
+h2{
+    text-shadow: 4px 8px 1px blue, 8px 8px 4px brown ;
+}
+
+h1.multiple{
+color: white;
+text-shadow: 1px 1px 2px #000, 0 0 25px blue, 0 0 5px darkblue;
+}
+
+.box{
+    background-color:#222;
+    text-align: center;
+    line-height: 200px;
+
+}
+
+.box h1{
+    color: rgba(0, 0, 0, .6);
+    text-shadow: 2px 2px 3px rgba(255, 255, 255, .1);
+}
+
+.box_shadow{
+    width: 300px;
+    height: 100px;
+    background-color: yellow;
+    box-shadow: 10px 10px 5px;
+    margin-bottom: 150px;
+}
+
+.box_shadow:hover{
+    box-shadow: 0 0 50px #333 inset;
+}
