@@ -2,51 +2,31 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 
 const obj = {
-    title: 'satauri',
-    subtitle: 'sataguri',
-    options: ["erti", 'ori']
+    title: "Visibility toggle",
+    text: "so, here is some toggle text",
+    disable: true
 }
-
-
-const addTo = (e) => {
+const handleDisable = (e) => {
     e.preventDefault();
-    console.log(obj.options);
-    obj.options.push(e.target.option.value)
-    console.log(obj.options);
-    e.target.option.value = '';
-    renderOptions()
-
+    obj.disable === true ? obj.disable = false : obj.disable = true;
+    renderToggle();
 }
 
+const i = document.getElementById('root')
 
-
-const renderOptions = () => {
+const renderToggle = () => {
     const app = (
         <div>
             <h1>{obj.title}</h1>
-            <p>{obj.subtitle}</p>
-            <p>{obj.options.join(', ')}</p>
-            <form onSubmit={addTo}>
-                <input type="text" name="option" />
-                <button >add to</button>
-            </form>
-        </div>
+            {!obj.disable && <p >{obj.text}</p>}
+            <button onClick={handleDisable}>toggle</button>
+        </div >
     )
-    const i = document.getElementById('root')
 
     ReactDOM.render(app, i)
 }
-renderOptions()
 
-
-
-
-
-
-
-
-
-
+renderToggle();
 
 
 
