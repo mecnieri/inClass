@@ -1,17 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 
-let gamosacheni = (
-    <div>
-        <h1>ეს მინდა გამოჩნდეს</h1>
-        <p>ესეც პარაგრაფი</p>
-    </div>
+const obj = {
+    title: 'satauri',
+    subtitle: 'sataguri',
+    options: ["erti", 'ori']
+}
+
+
+const addTo = (e) => {
+    e.preventDefault();
+    console.log(obj.options);
+    obj.options.push(e.target.option.value)
+    console.log(obj.options);
+    e.target.option.value = '';
+    renderOptions()
+
+}
+
+
+
+const renderOptions = () => {
+    const app = (
+        <div>
+            <h1>{obj.title}</h1>
+            <p>{obj.subtitle}</p>
+            <p>{obj.options.join(', ')}</p>
+            <form onSubmit={addTo}>
+                <input type="text" name="option" />
+                <button >add to</button>
+            </form>
+        </div>
     )
+    const i = document.getElementById('root')
 
-let idishi = document.getElementById('root')
+    ReactDOM.render(app, i)
+}
+renderOptions()
 
 
-ReactDOM.render(gamosacheni, idishi)
 
 
 
