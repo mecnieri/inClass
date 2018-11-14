@@ -63,6 +63,8 @@ class Option extends React.Component {
     }
 }
 
+this.handleFunction = this.handleFunction.bind(this);
+
 
 
 class AddOption extends React.Component {
