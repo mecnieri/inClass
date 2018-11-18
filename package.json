@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "express": "^4.16.4",
+    "normalize.css": "^8.0.1",
     "pug": "^2.0.3",
     "pug-cli": "^1.0.0-alpha6",
     "simple-statistics": "^6.1.1"
