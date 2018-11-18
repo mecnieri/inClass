@@ -1,0 +1,40 @@
+extends layout
+
+block content
+    div(class="car-wrapper")
+        form(action="http://localhost:3000/cars", method="post" )
+            p(class="car-input") მარკა
+            input(
+                type="text"
+                class="car-input"
+                name="make"
+                )
+            p(class="car-input") მოდელი
+            input(
+                type="text"
+                class="car-input"
+                name="model"
+                )
+            p(class="car-input") VIN
+            input(
+                type="text"
+                class="car-input"
+                name="vin"
+                )
+            p(class="car-input") სახელმწიფო ნომერი
+            input(
+                type="text"
+                class="car-input"
+                name="car_id"
+                )
+            p(class="car-input") ფერი
+            input(
+                type="text"
+                class="car-input"
+                name="color"
+                )
+            br
+            button(
+                class="car-button"
+                type="submit"
+            ) დამატება

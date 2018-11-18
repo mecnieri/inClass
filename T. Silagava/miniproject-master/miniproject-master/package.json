@@ -1,0 +1,16 @@
+{
+  "name": "j",
+  "version": "1.0.0",
+  "description": "simple knowledgebase app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "Tea Silagava",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "pug": "^2.0.3"
+  }
+}

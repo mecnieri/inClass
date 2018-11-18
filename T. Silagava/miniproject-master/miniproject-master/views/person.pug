@@ -1,0 +1,34 @@
+extends layout
+
+block content
+    div(class="person-wrapper")
+        form(action="", method="get" )
+            p(class="person-input") სახელი
+            input(
+                type="text"
+                class="person-input"
+                )
+            p(class="person-input") გვარი
+            input(
+                type="text"
+                class="person-input")
+            p(class="person-input") პირადი ნომერი
+            input(
+                type="text"
+                class="person-input"
+                )
+            p(class="person-input") მამის სახელი
+            input(
+                type="text"
+                class="person-input"
+                )
+            p(class="person-input") დაბადების თარიღი
+            input(
+                type="text"
+                class="person-input"
+                )
+            br
+            button(
+                class="person-button"
+                type="submit"
+            ) დამატება

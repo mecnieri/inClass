@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    div(
+        class="wrapper"
+    )
+        form(action="http://localhost:3000/cars/add", method="get")
+            button(
+                class="home"
+                type="submit"
+                ) Add Car
+        form(action="http://localhost:3000/person", method="get")
+            button(
+                class="home"
+                type="submit"
+                ) Add Person

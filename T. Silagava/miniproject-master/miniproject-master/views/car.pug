@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    #table-wrapper
+        table#desc
+            tr
+                th მარკა 
+                th მოდელი
+                th VIN
+                th სახელმწიფო ნომერი
+                th ფერი
+            tr
+
+            //- app.js ში 63-ე ხაზზე დესტრუქტურინგის შედეგად მიღებული ცვლადები გადმოიცემა აქ 
+            tr
+                th=make 
+                th=model
+                th=vin
+                th=car_id
+                th=color
+            tr
+
