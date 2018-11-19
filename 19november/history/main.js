@@ -32,7 +32,7 @@ window.onload = () => {
 
             fetch(url)
                 .then(data => data.text())
-                .then(data => console.log(contentElement.innerHTML = data))
+                .then(data => contentElement.innerHTML = data)
                 .catch(err => console.log(err))
 
             renderContent(viewData)
