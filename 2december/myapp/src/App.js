@@ -1,27 +1,54 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { throwStatement } from 'babel-types';
+
+
+export const handleMinus = (prevState) => {
+  return {
+    count: prevState.count - 1
+  }
+}
+
+export const handlePlus = (prevState) => {
+  return {
+    count: prevState.count + 1
+  }
+}
+
+export const Value = ({ count }) => <h3>Count : {count}</h3>;
+
 
 class App extends Component {
+  constructor() {
+    super()
+
+    this.state = {
+      count: 0
+    }
+    // this.onHandleMinus = this.onHandleMinus.bind(this)
+    // this.handlePlus = this.handlePlus.bind(this)
+  }
+
+
+  handlePlus = () => {
+    this.setState(handlePlus)
+  }
+
+  onHandleMinus = () => {
+    this.setState(handleMinus)
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+      <div>
+        <Value count={this.state.count} />
+        <button onClick={this.handlePlus}> plus 1 </button>
+        <br />
+        <button onClick={this.onHandleMinus}> minus 1 </button>
+        <br />
+      </div >
+
+    )
   }
 }
 
