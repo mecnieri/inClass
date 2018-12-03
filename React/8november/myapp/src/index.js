@@ -38,26 +38,24 @@ class Incedision extends React.Component {
     }
 }
 
-class Header extends React.Component {
-    render() {
-        return (
-            <div>
-                <h1>{this.props.title}</h1>
-                <p>{this.props.subtitle}</p>
-            </div>
-        )
-    }
+const Header = (props) => {
+    return (
+        <div>
+            <h1>{props.title}</h1>
+            <p>{props.subtitle}</p>
+        </div>
+    )
 }
-class Action extends React.Component {
-    render() {
-        return (
-            <div>
-                <button onClick={this.props.handlePick}>What should I do ? </button>
-            </div>
-        )
-    }
+
+const Action = (props) => {
+    return (
+        <div>
+            <button onClick={props.handlePick}>What should I do ? </button>
+        </div>
+    )
 }
-class Options extends React.Component {
+
+ class Options extends React.Component {
     render() {
         return (
             <div>
