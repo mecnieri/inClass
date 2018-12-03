@@ -29,7 +29,7 @@ html,body {
     span{
         text-transform:capitalize;
         text-decoration: underline;
-        color: red;
+        color: mix( #878888 * 2);
         background: blue;
         cursor: pointer;
         font: $font-size $font-family;
@@ -40,6 +40,6 @@ html,body {
 
     .#{$titleParent} > & {
         font-family: $font-family;
-        height: 300px;
+        height: (400px) / 2; 
     }
 }
