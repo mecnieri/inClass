@@ -15,6 +15,4 @@ class ProfilePage extends React.Component {
     );
   }
 }
-
-ReactDOM.render(<ProfilePage />, document.getElementById('app'))
 export default ProfilePage;
